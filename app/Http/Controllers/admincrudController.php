@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use App\Models\banks;
 use App\Models\Image;
 use App\Models\brands;
@@ -12,6 +13,7 @@ use App\Models\departemens;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Http\RedirectResponse;
  
 class admincrudController extends Controller
 {
@@ -20,12 +22,14 @@ class admincrudController extends Controller
         $bank=banks::all();
         $departemen=departemens::all();
         $brand=brands::all();
-        $lokasinya=lokasinyas::all();
+        $lokasi=lokasinyas::all();
         $title1=title1s::all();
-        return view('/admin/crudData', compact('bank','departemen','brand','lokasinya','title1'));
+        $profilhr=User::all();
+        $profiladmin=User::all();
+        //dd($profilhr);
+        return view('/admin/crudData', compact('bank','departemen','brand','lokasi','title1','profilhr','profiladmin'));
     }
 
-    //MAKE THE EDIT AND DELETE FUNCTION!!
     // bankSave
     public function bankSave(Request $request)
     { 
@@ -36,120 +40,156 @@ class admincrudController extends Controller
                 ];
                 DB::table('banks')->insert($simpanBank);
             }
-        return redirect()->back();
+            return redirect()->back()->with('Success', 'A Bank Name added successfully!');
     }
  
-    public function create()
+    public function bankHapus($id)
     {
-        return view('create');
+         $hapusBank=Banks::findOrFail($id);
+         $hapusBank->delete();
+         return back()->with('Success', 'A Bank Name deleted successfully!');
     }
-     
-    public function store(Request $request)
+    public function bankEditnya(Request $request,$id)
     {
-        if($request->hasFile("cover")){
-            $file=$request->file("cover");
-            $imageName=time().'_'.$file->getClientOriginalName();
-            $file->move(\public_path("cover/"),$imageName);
- 
-            $post =new Post([
-                "title" =>$request->title,
-                "author" =>$request->author,
-                "body" =>$request->body,
-                "cover" =>$imageName,
-            ]);
-           $post->save();
-        }
- 
-        if($request->hasFile("images")){
-                $files=$request->file("images");
-                foreach($files as $file){
-                    $imageName=time().'_'.$file->getClientOriginalName();
-                    $request['post_id']=$post->id;
-                    $request['image']=$imageName;
-                    $file->move(\public_path("/images"),$imageName);
-                    Image::create($request->all());
- 
-                }
-        }
- 
-        return redirect("/");
+        $editbanknya=banks::findOrFail($id);
+    
+           $editbanknya->update([
+               "bankName" =>$request->bankName
+           ]);
+    
+           return redirect('/admin/crudData')->with('Success', 'A Bank Name edited successfully!');
     }
  
-    public function edit($id)
-    {
-        $posts=Post::findOrFail($id);
-        return view('edit')->with('posts',$posts);
+    // TITLE1
+    public function title1Save(Request $request)
+    { 
+        title1s::create($request->all());
+        return redirect('/admin/crudData')->with('Success', 'A Title Name Added successfully!');
     }
  
-    public function update(Request $request,$id)
-    {
-     $post=Post::findOrFail($id);
-     if($request->hasFile("cover")){
-         if (File::exists("cover/".$post->cover)) {
-             File::delete("cover/".$post->cover);
-         }
-         $file=$request->file("cover");
-         $post->cover=time()."_".$file->getClientOriginalName();
-         $file->move(\public_path("/cover"),$post->cover);
-         $request['cover']=$post->cover;
-     }
  
-        $post->update([
-            "title" =>$request->title,
-            "author"=>$request->author,
-            "body"=>$request->body,
-            "cover"=>$post->cover,
+    public function title1Hapus($id)
+    {
+         $hapustitle1=title1s::findOrFail($id);
+         $hapustitle1->delete();
+         return redirect('/admin/crudData')->with('Success', 'A Title Name Deleted successfully!');
+    }
+    public function title1Editnya(Request $request,$id)
+    {
+        $edittitle1nya=title1s::findOrFail($id);
+    
+           $edittitle1nya->update([
+               "title1Name" =>$request->title1Name
+           ]);
+    
+           return redirect('/admin/crudData')->with('Success', 'A Title Name Edited successfully!');
+    }
+
+    // brandSave
+    public function brandSave(Request $request)
+    { 
+        brands::create($request->all());
+        return redirect('/admin/crudData')->with('Success', 'A Brand Name added successfully!');
+    }
+ 
+    public function brandHapus($id)
+    {
+
+        $hapusbrand=brands::findOrFail($id);
+        $hapusbrand->delete();
+         return redirect('/admin/crudData')->with('Success', 'A Brand Name deleted successfully!');
+    }
+    public function brandEditnya(Request $request,$id)
+    {
+        $editbrandnya=brands::findOrFail($id);
+    
+           $editbrandnya->update([
+               "brandName" =>$request->brandName
+           ]);
+    
+           return view('/admin/crudData')->with('Success', 'A Brand Name Edited successfully!');
+    }
+    
+
+    // departemen
+    public function departemenSave(Request $request)
+    { 
+        departemens::create($request->all());
+        return redirect('/admin/crudData')->with('Success', 'A Departemen Name added successfully!');
+    }
+ 
+    public function departemenHapus($id)
+    {
+
+        $hapusdepartemen=departemens::findOrFail($id);
+        $hapusdepartemen->delete();
+         return redirect('/admin/crudData')->with('Success', 'A Departemen Name deleted successfully!');
+    }
+    public function departemenEditnya(Request $request,$id)
+    {
+        $editdepartemennya=departemens::findOrFail($id);
+    
+           $editdepartemennya->update([
+               "departemenName" =>$request->departemenName
+           ]);
+    
+           return redirect('/admin/crudData')->with('Success', 'A departemen Name Edited successfully!');
+    }
+    
+
+    // lokasinya
+    public function lokasinyaSave(Request $request)
+    { 
+        lokasinyas::create($request->all());
+        return redirect('/admin/crudData')->with('Success', 'A lokasinya Name added successfully!');
+    }
+ 
+    public function lokasinyaHapus($id)
+    {
+
+        $hapuslokasinya=lokasinyas::findOrFail($id);
+        $hapuslokasinya->delete();
+         return redirect('/admin/crudData')->with('Success', 'A lokasi Name deleted successfully!');
+    }
+    public function lokasinyaEditnya(Request $request,$id)
+    {
+        $editlokasinyanya=lokasinyas::findOrFail($id);
+    
+           $editlokasinyanya->update([
+               "lokasiName" =>$request->lokasiName
+           ]);
+    
+           return redirect('/admin/crudData')->with('Success', 'A lokasi Name Edited successfully!');
+    }
+    
+//0 = User, 1 = Admin, 2 = Manager, 3 = HR
+    // profilhr 
+    public function profilhrSave(Request $request,$id)
+    { 
+        //Only need to change its Type status
+        $updateprofilhrnya=User::findOrFail($id);
+        $updateprofilhrnya->update([
+            "type" =>$request->type
         ]);
- 
-        if($request->hasFile("images")){
-            $files=$request->file("images");
-            foreach($files as $file){
-                $imageName=time().'_'.$file->getClientOriginalName();
-                $request["post_id"]=$id;
-                $request["image"]=$imageName;
-                $file->move(\public_path("images"),$imageName);
-                Image::create($request->all());
- 
-            }
-        }
- 
-        return redirect("/");
- 
+        return redirect('/admin/crudData')->with('Success', 'A Departemen Name added successfully!');
     }
  
-    public function destroy($id)
+    public function profilhrHapus($id)
     {
-         $posts=Post::findOrFail($id);
- 
-         if (File::exists("cover/".$posts->cover)) {
-             File::delete("cover/".$posts->cover);
-         }
-         $images=Image::where("post_id",$posts->id)->get();
-         foreach($images as $image){
-            if (File::exists("images/".$image->image)) {
-                File::delete("images/".$image->image);
-            }
-         }
-         $posts->delete();
-         return back();
+
+        $hapusprofilhr=User::findOrFail($id);
+        $hapusprofilhr->delete();
+         return redirect('/admin/crudData')->with('Success', 'A Departemen Name deleted successfully!');
     }
- 
-    public function deleteimage($id){
-        $images=Image::findOrFail($id);
-        if (File::exists("images/".$images->image)) {
-           File::delete("images/".$images->image);
-        }
- 
-       Image::find($id)->delete();
-       return back();
-    }
- 
-    public function deletecover($id){
-        $cover=Post::findOrFail($id)->cover;
-        if (File::exists("cover/".$cover)) {
-            File::delete("cover/".$cover);
-        }
-        return back();
+    public function profilhrEditnya(Request $request,$id)
+    {
+        $editprofilhrnya=User::findOrFail($id);
+    
+           $editprofilhrnya->update([
+               "type" =>$request->type
+           ]);
+    
+           return redirect('/admin/crudData')->with('Success', 'A departemen Name Edited successfully!');
     }
  
 }

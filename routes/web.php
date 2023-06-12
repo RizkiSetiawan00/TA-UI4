@@ -9,7 +9,7 @@ use App\Http\Controllers\admincrudController;
 use App\Http\Controllers\tambahbaruController;
  
 Route::get('/', function () {
-    return view('home11');
+    return view('/auth/login');
 })->name('home');
  
 Auth::routes();
@@ -42,8 +42,70 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
 
 
 //Admin
-Route::get('/admin/crudData',[admincrudController::class, "showPage"]);
+Route::get('/admin/crudData',[admincrudController::class, "showPage"])->name('adminCrud');
+
+
+//Bank
+Route::controller(admincrudController::class)->prefix('banks')->group(function () {
+    Route::POST('/bankSave', "bankSave")->name('bank.save');
+    Route::delete('/bankDelete/{id}','bankHapus')->name('bank.Hapus');
+    Route::PUT('/bankEdit/{id}','bankEditnya')->name('bank.Edit');
+});
+
+//title1
+Route::controller(admincrudController::class)->prefix('title1s')->group(function () {
+    Route::POST('/title1Save', "title1Save")->name('title1.save');
+    Route::delete('/title1Delete/{id}','title1Hapus')->name('title1.Hapus');
+    Route::PUT('/title1Edit/{id}','title1Editnya')->name('title1.Edit');
+});
+
+//brand
+Route::controller(admincrudController::class)->prefix('brands')->group(function () {
+    Route::POST('/brandSave', "brandSave")->name('brand.save');
+    Route::delete('/brandDelete/{id}','brandHapus')->name('brand.Hapus');
+    Route::PUT('/brandEdit/{id}','brandEditnya')->name('brand.Edit');
+});
+
+//departemen
+Route::controller(admincrudController::class)->prefix('departemens')->group(function () {
+    Route::POST('/departemenSave', "departemenSave")->name('departemen.save');
+    Route::delete('/departemenDelete/{id}','departemenHapus')->name('departemen.Hapus');
+    Route::PUT('/departemenEdit/{id}','departemenEditnya')->name('departemen.Edit');
+});
+
+//lokasinya
+Route::controller(admincrudController::class)->prefix('lokasinyas')->group(function () {
+    Route::POST('/lokasinyaSave', "lokasinyaSave")->name('lokasinya.save');
+    Route::delete('/lokasinyaDelete/{id}','lokasinyaHapus')->name('lokasinya.Hapus');
+    Route::PUT('/lokasinyaEdit/{id}','lokasinyaEditnya')->name('lokasinya.Edit');
+});
+
+//profilhr & admin
+Route::controller(admincrudController::class)->prefix('user')->group(function () {
+    Route::PUT('/profilhrSave', "profilhrSave")->name('profilhr.save');
+    Route::delete('/profilhrDelete/{id}','profilhrHapus')->name('profilhr.Hapus');
+    Route::PUT('/profilhrEdit/{id}','profilhrEditnya')->name('profilhr.Edit');
+    
+    Route::POST('/profiladminSave', "profiladminSave")->name('profiladmin.save');
+    Route::delete('/profiladminDelete/{id}','profiladminHapus')->name('profiladmin.Hapus');
+    Route::PUT('/profiladminEdit/{id}','profiladminEditnya')->name('profiladmin.Edit');
+});
+/*
+//Bank
 Route::POST('/bankSave',[admincrudController::class, "bankSave"])->name('bankSave');
+Route::delete('/bankDelete/{id}',[admincrudController::class,'bankHapus']);
+Route::PUT('/bankEdit/{id}',[admincrudController::class,'bankEditnya']);
+
+//title1
+Route::POST('/title1Save',[admincrudController::class, "title1Save"])->name('title1Save');
+Route::delete('/title1Delete/{id}',[admincrudController::class,'title1Hapus']);
+Route::PUT('/title1Edit/{id}',[admincrudController::class,'title1Editnya']);
+
+//brand
+Route::POST('/brandSave',[admincrudController::class, "brandSave"])->name('brandSave');
+Route::delete('/brandDelete/{id}',[admincrudController::class,'brandHapus']);
+Route::PUT('/brandEdit/{id}',[admincrudController::class,'brandEditnya']);
+*/
 
 //Karyawan
 //Route::get('/staff/index',[dashController::class, "dashboard"]);

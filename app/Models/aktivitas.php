@@ -9,4 +9,11 @@ class aktivitas extends Model
 {
     use HasFactory;
     protected $table = 'aktivitas'; 
+    
+    protected $fillable = [
+        'desc',
+        'dealine',
+        'status',
+        'sta_desc',
+    ];
 }

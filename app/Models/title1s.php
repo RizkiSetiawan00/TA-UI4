@@ -9,4 +9,8 @@ class title1s extends Model
 {
     use HasFactory;
     protected $table = 'title1s';
+    
+    protected $fillable = [
+        'title1Name',
+    ];
 }
