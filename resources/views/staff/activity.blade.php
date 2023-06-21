@@ -1,5 +1,5 @@
-<?php include 'navbar2.php';?>
-<body class="font-regular">
+
+<x-layout>
 <!-- Content Start -->
 <div class="container">
             <!-- Start of Topbar -->
@@ -87,7 +87,7 @@
                                 <td>Cell</td>
                                 <td>Cell</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staffModal">Edit</button>
                                 </td>
                             </tr>
                             </tbody>
@@ -312,5 +312,5 @@
                     });
                 </script>
 <!-- End Of Modal STAFF-->
-
-</html>
+@include('/modal/modalAddActivity00')
+</x-layout>

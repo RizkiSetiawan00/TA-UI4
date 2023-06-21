@@ -19,6 +19,15 @@ class dashController extends Controller
         $this->middleware('auth');
     }
     */
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function crudData()
     {
@@ -59,6 +68,10 @@ class dashController extends Controller
     public function dashboard() {
         //return ("UR AN USER!");
         return view('/staff/index');
+    }
+
+    function profilenya() {
+        return view('/staff/profile')->with('user', auth()->user());
     }
 
     public function profile() {

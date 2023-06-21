@@ -1,4 +1,4 @@
-<x-layout>
+<x-hr-layout>
     <!-- Content Start -->
 
 <!-- Content Start -->
@@ -17,13 +17,13 @@
   
               <div class="row d-flex justify-content-center">
                   <div class="col-auto">
-                      <h2 class="font-bold font-color1" style="margin-top: 15px;" >M. Rizki Nada S</h2>
+                      <h2 class="font-bold font-color1" style="margin-top: 15px;" >{{$profileAjanya->name}}</h2>
                   </div>
               </div>
   
               <div class="row d-flex justify-content-center ">
                   <div class="col-auto ">
-                      <p class="text-lowercase text2" >Assistant</p>
+                      <p class="text-lowercase text2" >{{$profileAjanya->title1Name}}</p>
                   </div>
   
               </div>
@@ -34,7 +34,7 @@
                           <p class="font-bold text1" >NIP</p>
                       </div>
                       <div class="col text-start">
-                          <p class=" text1" >5002</p>
+                          <p class=" text1" >{{$profileAjanya->nip}}</p>
                       </div>
                   </div>
                   <div class="row marg0">
@@ -42,7 +42,7 @@
                           <p class="font-bold text1" >Birth</p>
                       </div>
                       <div class="col text-start">
-                          <p class=" text1" >26 August 2002</p>
+                          <p class=" text1" >{{  date('d F Y', strtotime($profileAjanya->birth))  }}</p>
                       </div>
                   </div>
                   <div class="row marg0">
@@ -50,7 +50,7 @@
                           <p class="font-bold text1" >Phone</p>
                       </div>
                       <div class="col text-start">
-                          <p class=" text1" >0812 1944 094</p>
+                          <p class=" text1" >{{$profileAjanya->phoneNumb}}</p>
                       </div>
                   </div>
                   <div class="row marg0">
@@ -58,7 +58,7 @@
                           <p class="font-bold text1" >Email</p>
                       </div>
                       <div class="col text-truncate" style="max-width: 150px">
-                          <p class=" text1"  >rizki23.446@gmail.com</p>
+                          <p class=" text1"  >{{$profileAjanya->email}}</p>
                       </div>
                   </div>
   
@@ -83,14 +83,22 @@
                   <div class="col d-flex justify-content-end me-5 align-items-center mb-3" >
                       
                       <div class="absen align-items-center">
-                          <a href="/hr/edit_staff" class="text-body text-decoration-none font-color1">
-                      <button type="button" class="btn btn-outline font-color1 font-bold"><strong>Edit Profile</strong>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="#1D214E" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                      </svg>
-                      </button>
-                      </a>
+                            <a href="/hr/edit_staff/{{$profileAjanya->id}}" class="text-body text-decoration-none font-color1">
+                                <button type="button" class="btn btn-outline font-color1 font-bold"><strong>Edit Profile</strong>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="#1D214E" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                </svg>
+                                </button>
+                            </a>
+                      </div>
+                      
+                      <div class="absen3 align-items-center ms-2">
+                            <a href="/hr/edit_staff/{{$profileAjanya->id}}" class="text-body text-decoration-none font-color1">
+                                <button type="button" class="btn btn-outline font-color1 font-bold">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 24 24"><path fill="#1D214E" d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12M8 9h8v10H8V9m7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5Z"/></svg>
+                                </button>
+                            </a>
                       </div>
                   </div>
   
@@ -128,7 +136,7 @@
                                   <div class="col-xl-4 text-start"  >
                                       <p class="font-bold text3" >ID Number</p>
                                   </div>
-                                  <div class="col-xl text3 text-start">1111111111111</div>
+                                  <div class="col-xl text3 text-start">{{$profileAjanya->idNumb}}</div>
                               </div>
                           <!-- End Of Item 2 -->
   
@@ -153,7 +161,7 @@
                                   <div class="col-xl-4 text-start" >
                                       <p class="font-bold text3 pt-1" >Join Date</p>
                                   </div>
-                                  <div class="col-xl text3 text-start pt-1">30 January 2023</div>
+                                  <div class="col-xl text3 text-start pt-1">{{  date('d F Y', strtotime($profileAjanya->joinDate))  }}</div>
                               </div>
                           <!-- End Of Item 1 -->
                               
@@ -162,7 +170,7 @@
                                   <div class="col-xl-4 text-start"  >
                                       <p class="font-bold text3" >Brand</p>
                                   </div>
-                                  <div class="col-xl text3 text-start">Group</div>
+                                  <div class="col-xl text3 text-start">{{$profileAjanya->brandName}}</div>
                               </div>
                           <!-- End Of Item 2 -->
                       </div>
@@ -182,7 +190,7 @@
                                   <div class="col-xl">
                                   <div class="text-start bg-opacity-0 border1 mx-auto p-2" style="min-height: 130px;">
                                       <p class="card-text">
-                                          Jl. Johar Baru Utara III No. 20, RT 002/RW 003, Johar Baru, Jakarta Pusat, 10560
+                                        {{$profileAjanya->alamat}}
                                       </p>
                                   </div>
                                   </div>
@@ -206,10 +214,7 @@
                                   <div class="col-xl">
                                   <div class="text-start bg-opacity-0 border1 mx-auto p-2" style="min-height: 130px;">
                                       <p class="card-text">
-                                      1. IT Infrastructure - Back-up <br>
-                                      2. IT Infrastructure - Ransomware or Virus attack <br>
-                                      3. IT HO - HD SLA <br>
-                                      4. IT Overall - Numbers of Training executed per Year
+                                        {{$profileAjanya->jobDesc}}
                                       </p>
                                   </div>
                                   </div>
@@ -256,16 +261,7 @@
                                   <div class="col-xl">
                                   <div class="text-start bg-opacity-0 border1 mx-auto p-2" style="min-height: 130px;">
                                       <p class="card-text">
-                                      1. Perform, organize, and streamline HO IT Help desk tasks which includes day-to-day tasks, configuration changes based on business stakeholder’s requirement to reduce the potential for errors. <br>
-                                      2. Monitor and resolve HO IT End Users devices problems, take immediate action where possible and provide support and guidance to users, escalate to vendors support when required. <br>
-                                      3. Manage configurations and upgrades HO IT End Users devices. <br>
-                                      4. Monitor and analyst HO IT Help Desk tickets incidents report and maintain the acceptable KPI and SLA. <br>
-                                      5. Work closely with the business stakeholders to fully understand the business process and requirements. 6.Work closely with the business stakeholders on issues related to IT infrastructure. <br>
-                                      6. Work closely and develop relationship with Services Providers and Vendors. <br>
-                                      7. Work closely and develop relationship with Services Providers and Vendors. <br>
-                                      8. Build and promote a positive working environment for the team within your areas as well as other business areas you will engage with. <br>
-                                      9. Ensure that projects are accurately estimated and delivered to schedule. <br>
-                                      10. Show flexibility to respond to the changing needs of the business. <br>
+                                        {{$profileAjanya->jobPurpose}}
                                       </p>
                                   </div>
                                   </div>
@@ -322,21 +318,21 @@
                                   <div class="col-xl-4 text-start font-bold text3"  >
                                       Bank Name
                                   </div>
-                                  <div class="col-xl text3 text-start ">PT. Bank Central ASIA</div>
+                                  <div class="col-xl text3 text-start ">{{$profileAjanya->bankName}}</div>
                               </div>
   
                               <div class="row align-items-center">
                                   <div class="col-xl-4 text-start font-bold text3 pt-2 pb-2"  >
                                       Account Name
                                   </div>
-                                  <div class="col-xl text3 text-start pt-2 pb-2">Muh. Rizki Nada S</div>
+                                  <div class="col-xl text3 text-start pt-2 pb-2">{{$profileAjanya->accName}}</div>
                               </div>
   
                               <div class="row align-items-center">
                                   <div class="col-xl-4 text-start font-bold text3 pt-2 pb-2"  >
                                       Account Number
                                   </div>
-                                  <div class="col-xl  text3 text-start pt-2 pb-2">7000 2302 3430</div>
+                                  <div class="col-xl  text3 text-start pt-2 pb-2">{{$profileAjanya->accNumb}}</div>
                               </div>
   
                           </div>
@@ -364,7 +360,7 @@
                                   <div class="col-xl-4 text-start font-bold text3 pt-2 pb-2"  >
                                       NPWP
                                   </div>
-                                  <div class="col-xl text3 text-start pt-2 pb-2">23234277345</div>
+                                  <div class="col-xl text3 text-start pt-2 pb-2">{{$profileAjanya->npwp}}</div>
                               </div>
   
                           </div>
@@ -435,7 +431,7 @@
                                   <div class="col-xl-4 text-start font-bold text3"  >
                                   BPJS Ketenagakerjaan Membership No.
                                   </div>
-                                  <div class="col-xl text3 text-start ">12436756523</div>
+                                  <div class="col-xl text3 text-start ">{{$profileAjanya->bpjsKerja}}</div>
                               </div>
   
                               <div class="row align-items-center text-wrap">
@@ -512,7 +508,7 @@
                                   <div class="col-xl-4 text-start font-bold text3"  >
                                   BPJS Kesehatan Membership No.
                                   </div>
-                                  <div class="col-xl-6 text3 text-start ">12436756523</div>
+                                  <div class="col-xl-6 text3 text-start ">{{$profileAjanya->bpjsSehat}}</div>
                               </div>
   
                               <div class="row align-items-center text-wrap">
@@ -531,7 +527,7 @@
                                   <div class="col-xl-4 text-start font-bold text3"  >
                                   Health Insurance Member No.
                                   </div>
-                                  <div class="col-xl-6 text3 text-start ">12341356436756523</div>
+                                  <div class="col-xl-6 text3 text-start ">{{$profileAjanya->health}}</div>
                               </div>
   
                           </div>
@@ -573,4 +569,4 @@
   </div>
   
     <!-- Content End -->
-</x-layout>
+</x-hr-layout>

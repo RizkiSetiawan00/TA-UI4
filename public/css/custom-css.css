@@ -46,6 +46,12 @@
     border-radius: 10px;
 }
 
+.absen3{
+    background: #FF8E8E;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
 .absen{
     background: #04D7A2;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);

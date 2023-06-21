@@ -70,9 +70,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-
-    <button type="button" class="btn btn-sm btn-success" onclick="addRows()">Add Column</button>
-    <button type="button" class="btn btn-sm btn-danger" onclick="deleteRows()">Remove</button>
         <form action="{{ route('bank.save') }}" method="POST">
             @csrf
 

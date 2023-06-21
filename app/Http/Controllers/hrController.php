@@ -15,15 +15,16 @@ use Illuminate\Support\Facades\DB;
 class hrController extends Controller
 {
     //Auth Admin
-
-    public function showLoginForm()
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        return view('hr.login');
+        $this->middleware('auth');
     }
-
-    public function dashboard_hr() {
-        return view("/hr/index");
-    }
+ 
 
     public function aktivitas() {
         return view("/hr/activity");
@@ -35,6 +36,7 @@ class hrController extends Controller
 
         
         $profileAjanya = DB::table('users')
+        //->where('users.type',1)
         ->join('title1s', 'title1s.id', '=', 'users.title1_id')
         ->select('users.*', 'title1s.title1Name')
         ->get();                      
@@ -44,8 +46,20 @@ class hrController extends Controller
 
     }
 
-    public function moredetails_Staff() {
-        return view("/hr/staff_moredetails");
+    public function moredetails_Staff($id) {
+
+        $profileAjanya = User::find($id);
+        $profileAjanya = DB::table('users')
+                    ->where('users.id',$id)
+                    ->join('banks', 'banks.id', '=', 'users.bank_id')
+                    ->join('lokasinyas', 'lokasinyas.id', '=', 'users.lokasinya_id')
+                    ->join('departemens', 'departemens.id', '=', 'users.departemen_id')
+                    ->join('brands', 'brands.id', '=', 'users.brand_id')
+                    ->join('title1s', 'title1s.id', '=', 'users.title1_id')
+                    ->select('users.*', 'title1s.title1Name', 'banks.bankName', 'brands.brandName', 'departemens.departemenName', 'lokasinyas.lokasiName')
+                    ->first();
+        
+        return view("/hr/staff_moredetails", compact('profileAjanya'));
     }
 
     public function addnew_Staff() {

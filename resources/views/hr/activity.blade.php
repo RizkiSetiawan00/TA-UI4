@@ -80,12 +80,37 @@
                             <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>Cell</td>
-                                <td>Cell</td>
-                                <td>Cell</td>
-                                <td>Cell</td>
-                                <td>Cell</td>
-                                <td>Cell</td>
+                                <td>Make a Brochure Design for Sales Marketing Campaign</td>
+                                <td>2023/06/17</td>
+                                <td>2023/07/05</td>
+                                <td>M. Rizki Nada S</td>
+                                <td>On Progress	</td>
+                                <td>Working on it!</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                                    <button type="button" class="btn btn-danger btn-sm" >Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">To Do</th>
+                                <th scope="col">Created At</th>
+                                <th scope="col">Deadline</th>
+                                <th scope="col">Worked By</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Need Microsoft Office to be installed on Mrs. Sandra's laptop</td>
+                                <td>2023/06/20</td>
+                                <td>2023/06/25</td>
+                                <td></td>
+                                <td>On Hold	</td>
+                                <td></td>
                                 <td>
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
                                     <button type="button" class="btn btn-danger btn-sm" >Delete</button>

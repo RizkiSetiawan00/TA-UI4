@@ -54,13 +54,10 @@
             <div class="col-lg">
               <ul class="navbar-nav ">
                 <li class="nav-item fivepx">
-                  <a class="nav-link active text-white " aria-current="page" href="/staff/index">Dashboard</a>
+                  <a class="nav-link active text-white " aria-current="page" href="{{route('admin.home')}}">Dashboard</a>
                 </li>
                 <li class="nav-item fivepx">
-                  <a class="nav-link text-white" href="{{route('staff.profile')}}">Profile</a>
-                </li>
-                <li class="nav-item fivepx">
-                  <a class="nav-link text-white" href="worksheet.php">Projects</a>
+                  <a class="nav-link text-white" href="{{route('admin.crudData')}}">Data Records</a>
                 </li>
                 <!--
                 <li class="nav-item dropdown fivepx">

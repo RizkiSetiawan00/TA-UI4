@@ -33,7 +33,7 @@ class HomeController extends Controller
      */
     public function hrHome()
     {
-        return view('/staff/index');
+        return view('/hr/index');
     }
  
     /**
@@ -43,7 +43,7 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('/staff/index');
+        return view('/admin/index');
     }
     
     /**
@@ -53,6 +53,6 @@ class HomeController extends Controller
      */
     public function managerHome()
     {
-        return view('/staff/index');
+        return view('/manager/index');
     }
 }

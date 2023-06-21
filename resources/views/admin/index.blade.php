@@ -1,6 +1,5 @@
-<x-layout>
+<x-admin-layout>
   <!-- Content Start -->
-  <div class="container te
 <div class="container text-center mt-5 pt-5">
   <div class="row justify-content-start">
     <div class="col-auto">
@@ -15,4 +14,4 @@
 </div>
 
 <!-- Content End -->
-</x-layout>
+</x-admin-layout>

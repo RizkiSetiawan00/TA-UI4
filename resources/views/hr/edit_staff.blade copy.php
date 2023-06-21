@@ -1,74 +1,72 @@
 <x-hr-layout>
     <!-- Content Start -->
-
-<!-- Content Start -->
-<div class="container">
-    <!-- Start of Topbar -->
-
-<div class="row d-flex justify-content-center mb-5 gap-5">
-
-    <div class="col-xl topbar g-col-6 " >
-        <div class="container row-gap-3 pb-3" style="margin: 30px 25px 25px 25px;">
-
-            <div class="row pt-2">
-                <div class="col-xl h-20">
-                <div class="container-fluid " >
-
-                <div class="row justify-content-between pe-5">
-                <div class="col-6">
-
-                    <div class="row align-items-center gap-0 row-gap-3">
-                        <div class="col-xl-auto align-items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="60" viewBox="0 0 32 32"><path fill="#1D214E" d="M22 22v6H6V4h10V2H6a2 2 0 0 0-2 2v24a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6Z"/><path fill="#1D214E" d="m29.54 5.76l-3.3-3.3a1.6 1.6 0 0 0-2.24 0l-14 14V22h5.53l14-14a1.6 1.6 0 0 0 0-2.24ZM14.7 20H12v-2.7l9.44-9.45l2.71 2.71ZM25.56 9.15l-2.71-2.71l2.27-2.27l2.71 2.71Z"/></svg>
+    <div class="container">
+                <!-- Start of Topbar -->
+    
+            <div class="row d-flex justify-content-center mb-5 gap-5">
+    
+                <div class="col-xl topbar g-col-6 " >
+                    <div class="container row-gap-3 pb-3" style="margin: 30px 25px 25px 25px;">
+    
+                        <div class="row pt-2">
+                            <div class="col-xl h-20">
+                            <div class="container-fluid " >
+    
+                            <div class="row justify-content-between pe-5">
+                            <div class="col-6">
+    
+                                <div class="row align-items-center gap-0 row-gap-3">
+                                    <div class="col-xl-auto align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60" viewBox="0 0 32 32"><path fill="#1D214E" d="M22 22v6H6V4h10V2H6a2 2 0 0 0-2 2v24a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6Z"/><path fill="#1D214E" d="m29.54 5.76l-3.3-3.3a1.6 1.6 0 0 0-2.24 0l-14 14V22h5.53l14-14a1.6 1.6 0 0 0 0-2.24ZM14.7 20H12v-2.7l9.44-9.45l2.71 2.71ZM25.56 9.15l-2.71-2.71l2.27-2.27l2.71 2.71Z"/></svg>
+                                    </div>
+                                    <div class="col-xl float-start " style="padding: -10px;">
+    
+                                        <div class="row align-items-center">
+                                            <div class="col-xl-auto text-start font-bold font-color1 text5"  >
+                                                Edit Profile
+                                            </div>
+                                        </div>
+    
+                                    </div>
+            
+                                </div>
+                            
+                            </div>
+    
+                            </div>
+    
+                            </div>
+    
+                            </div>
+                        
                         </div>
-                        <div class="col-xl float-start " style="padding: -10px;">
-
-                            <div class="row align-items-center">
-                                <div class="col-xl-auto text-start font-bold font-color1 text5"  >
-                                    Add New Staff Profile
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Topbar -->
+        
+        <!-- Start of  Edit Profile -->
+    
+    <div class="row d-flex justify-content-center mb-2 mt-5 gap-5">
+    
+        <div class="col-xl bg-employee g-col-6 " >
+            <div class="container row-gap-3" style="margin: 30px 25px 25px 25px;">
+    
+                <div class="row">
+                    <div class="col-xl">
+                        <!-- Start of the Alert Bar -->
+                        <div class="row mb-3">
+                            <div class="col" >
+                                <div class="row align-item-center">
+                                    <div class="col d-flex me-5 alertBar" >
+                                        <h5 class="text-white m-0 p-1">You are now editing <strong class="text-capitalize">M. Rizki nada S</strong> Profile</h5>
+                                    </div>
+    
                                 </div>
                             </div>
-
+    
                         </div>
-
-                    </div>
-                
-                </div>
-
-                </div>
-
-                </div>
-
-                </div>
-            
-            </div>
-            </div>
-        </div>
-    </div>
-    <!-- End of Topbar -->
-
-<!-- Start of  Edit Profile -->
-
-<div class="row d-flex justify-content-center mb-2 mt-5 gap-5">
-
-<div class="col-xl bg-employee g-col-6 " >
-<div class="container row-gap-3" style="margin: 30px 25px 25px 25px;">
-
-    <div class="row">
-        <div class="col-xl">
-            <!-- Start of the Alert Bar -->
-            <div class="row mb-3">
-                <div class="col" >
-                    <div class="row align-item-center">
-                        <div class="col d-flex me-5 alertBar2" >
-                            <h5 class="text-white m-0 p-1">Add a New Staff Profile</h5>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <!-- End of the Alert Bar -->
+                        <!-- End of the Alert Bar -->
             
             <!-- Start of the Profile Picture -->
             <div class="row mb-3">
@@ -85,8 +83,7 @@
             <!-- End of the Profile Picture -->
 
         <div class="container-fluid " >
-            <form action="{{route('staff.save')}}" method="POST">
-                @csrf
+            <form action="#">
 
         <!-- Start of the Group 1 -->
         <div class="row mb-3">
@@ -106,13 +103,8 @@
                                 Name
                             </div>
                             <div class="col-md-7">
-                                <input type="text" name="name" class="form-control" id="inputEmail3"  value="{{ old('name') }}">
+                                <input type="text" class="form-control" id="inputEmail3">
                             </div>
-                            @error('name')
-                            <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                {{ $message }}
-                            </div>
-                            @enderror
                         </div>
                         
                     </div>
@@ -129,14 +121,9 @@
                                 Join Date
                             </div>
                             <div class="col-md-7 text-start">
-                                <input id="joinDate" name="joinDate" class="form-control" type="date" value="{{ old('joinDate') }}"/>
+                                <input id="startDate" class="form-control" type="date" />
                                 <span id="startDateSelected"></span>
                             </div>
-                            @error('joinDate')
-                            <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                {{ $message }}
-                            </div>
-                            @enderror
                         </div>
                         
                     </div>
@@ -154,18 +141,22 @@
                             </div>
                             <div class="col-md-7 text-start">
                                 
-                                <select value="{{ old('departemenName') }}" class="form-select formSelect"  name="departemenName" aria-label="Default select">
+                                <select class="form-select formSelect" aria-label="Default select">
                                     <option disabled selected="">Select Department</option>
-                                    @foreach ($depart as $depart)
-                                    <option value="{{$depart->id}}">{{ $depart->departemenName }}</option>
-                                    @endforeach
+                                    <option value="1">Adidas</option>
+                                    <option value="2">Coach</option>
+                                    <option value="3">Cole Haan</option>
+                                    <option value="4">CRM</option>
+                                    <option value="5">Digital & Omnichannel</option>
+                                    <option value="6">Distribution</option>
+                                    <option value="7">E-Commerce</option>
+                                    <option value="8">ELC</option>
+                                    <option value="9">Finance</option>
+                                    <option value="10">Gingersnaps</option>
+                                    <option value="11">Havaianas</option>
+                                    <option value="12">Human Resources</option>
                                 </select>
                             </div>
-                            @error('departemenName')
-                            <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                {{ $message }}
-                            </div>
-                            @enderror
                         </div>
                         
                     </div>
@@ -182,19 +173,14 @@
                         
                     <div class="row d-flex align-items-center">
                             <div class="col-1 ps-1 me-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 1024 1024"><path fill="#1D214E" d="M872 394c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8H708V152c0-4.4-3.6-8-8-8h-64c-4.4 0-8 3.6-8 8v166H400V152c0-4.4-3.6-8-8-8h-64c-4.4 0-8 3.6-8 8v166H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h168v236H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h168v166c0 4.4 3.6 8 8 8h64c4.4 0 8-3.6 8-8V706h228v166c0 4.4 3.6 8 8 8h64c4.4 0 8-3.6 8-8V706h164c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8H708V394h164zM628 630H400V394h228v236z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 24 24"><path fill="#1D214E" d="M22 3H2c-1.09.04-1.96.91-2 2v14c.04 1.09.91 1.96 2 2h20c1.09-.04 1.96-.91 2-2V5a2.074 2.074 0 0 0-2-2m0 16H2V5h20v14m-8-2v-1.25c0-1.66-3.34-2.5-5-2.5c-1.66 0-5 .84-5 2.5V17h10M9 7a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 9 12a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 9 7m5 0v1h6V7h-6m0 2v1h6V9h-6m0 2v1h4v-1h-4"/></svg>
                             </div>
                             <div class="col-md-2 text-start font-bold font-color1">
                                 NIP
                             </div>
                             <div class="col-md-7">
-                                <input value="{{ old('nip') }}"  type="number"  name="nip" class="form-control" id="inputEmail3">
+                                <input type="text" class="form-control" id="inputEmail3">
                             </div>
-                            @error('nip')
-                            <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                {{ $message }}
-                            </div>
-                            @enderror
                         </div>
                         
                     </div>
@@ -212,18 +198,22 @@
                             </div>
                             <div class="col-md-7 text-start">
                                 
-                                <select value="{{ old('title1Name') }}"  name="title1Name" class="form-select formSelect" aria-label="Default select">
+                                <select class="form-select formSelect" aria-label="Default select">
                                     <option disabled selected="">Select Title</option>
-                                    @foreach ($title1 as $title1)
-                                    <option value="{{$title1->id}}">{{ $title1->title1Name }}</option>
-                                    @endforeach
+                                    <option value="1">Administrator</option>
+                                    <option value="2">Area Manager</option>
+                                    <option value="3">Assistant</option>
+                                    <option value="4">Brand Manager</option>
+                                    <option value="5">Director</option>
+                                    <option value="6">Executive</option>
+                                    <option value="7">Finance </option>
+                                    <option value="8">Graphic Designer</option>
+                                    <option value="9">Finance</option>
+                                    <option value="10">Marketing</option>
+                                    <option value="11">Store Manager</option>
+                                    <option value="12">Warehouse</option>
                                 </select>
                             </div>
-                            @error('title1Name')
-                            <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                {{ $message }}
-                            </div>
-                            @enderror
                         </div>
                         
                     </div>
@@ -241,208 +231,53 @@
                             </div>
                             <div class="col-md-7 text-start">
                                 
-                            <select value="{{ old('lokasiName') }}"  name="lokasiName" class="form-select formSelect" aria-label="Default select">
+                            <select class="form-select formSelect" aria-label="Default select">
                                     <option disabled selected="">Select Location</option>
-                                    @foreach ($lokasi as $lokasi)
-                                    <option value="{{$lokasi->id}}">{{ $lokasi->lokasiName }}</option>
-                                    @endforeach
+                                    <option value="1">HO</option>
+                                    <option value="2">HOB</option>
+                                    <option value="3">WH</option>
+                                    <option value="4">Store</option>
                                 </select>
                             </div>
-                            @error('lokasiName')
-                            <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
                         </div>
                         
                     </div>
                         <!-- End of the Department of the Group 1 -->
 
+                </div>
                 <!-- End of the SECOND ROW of the Group 1 -->
             
 
                 <!-- Start of the THIRD ROW of the Group 1 -->
-                <div class="row mb-3">
-
-                    <!-- Start of the Id Number of the Group 1 -->
-                    <div class="col-xl-4">
-                        
-                        <div class="row d-flex align-items-center">
-                                <div class="col-1 ps-1 me-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 24 24"><path fill="#1D214E" d="M22 3H2c-1.09.04-1.96.91-2 2v14c.04 1.09.91 1.96 2 2h20c1.09-.04 1.96-.91 2-2V5a2.074 2.074 0 0 0-2-2m0 16H2V5h20v14m-8-2v-1.25c0-1.66-3.34-2.5-5-2.5c-1.66 0-5 .84-5 2.5V17h10M9 7a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 9 12a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 9 7m5 0v1h6V7h-6m0 2v1h6V9h-6m0 2v1h4v-1h-4"/></svg>
-                        </div>
-                        <div class="col-md-2 text-start font-bold font-color1">
-                            ID Number
-                        </div>
-                        <div class="col-md-7">
-                            <input value="{{ old('idNumb') }}"  type="number"  name="idNumb" class="form-control" id="inputEmail3">
-                        </div>
-                        @error('idNumb')
-                        <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    
-                </div>
-                    <!-- End of the ID Number of the Group 1 -->
-
-                        <!-- Start of the Email of the Group 1 -->
-                    <div class="col-xl-4">
-                        
-                        <div class="row d-flex align-items-center">
-                                <div class="col-1 ps-1 me-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 24 24"><path fill="#1D214E" d="M1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 18.75v-14C0 3.784.784 3 1.75 3ZM1.5 7.412V18.75c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V7.412l-9.52 6.433c-.592.4-1.368.4-1.96 0Zm0-2.662v.852l10.36 7a.25.25 0 0 0 .28 0l10.36-7V4.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Z"/></svg>
-                                </div>
-                                <div class="col-md-3 text-start font-bold font-color1">
-                                    Email
-                                </div>
-                                <div class="col-md-7">
-                                    <input value="{{ old('email') }}"  type="email"  name="email" class="form-control" id="inputEmail3">
-                                </div>
-                                @error('email')
-                                <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            
-                        </div>
-                            <!-- End of the Email of the Group 1 -->
-
-                        <!-- Start of Birth of the Group 1 -->
-                    <div class="col-xl-4">
-                        
-                        <div class="row d-flex align-items-center">
-                                <div class="col-1 ps-1 me-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 2048 2048"><path fill="#1D214E" d="M1920 1920v128H0v-128h128v-576q0-66 25-124t68-101t102-69t125-26h448V672q0-9 7-15t18-10t22-5t17-2q6 0 17 1t21 5t18 10t8 16v352h448q66 0 124 25t101 69t69 102t26 124v576h128zM448 1152q-37 0-70 13t-58 36t-42 54t-21 68q37 41 86 63t105 22q66 0 114-26t91-76q11-12 22-19t29-7q17 0 28 7t23 19q42 49 90 75t115 27q66 0 114-26t91-76q11-12 22-19t29-7q17 0 28 7t23 19q42 49 90 75t115 27q55 0 104-22t87-63q-4-36-20-67t-42-55t-59-36t-70-13H448zm-192 768h1408v-435q-48 24-93 37t-99 14q-72 0-137-24t-119-73q-54 48-119 72t-137 25q-72 0-137-24t-119-73q-54 48-119 72t-137 25q-54 0-99-13t-93-38v435zM960 512q-26 0-45-19t-19-45q0-12 8-31t18-40t21-40t17-30q6 11 16 30t21 40t19 40t8 31q0 26-19 45t-45 19z"/></svg>
-                                </div>
-                                <div class="col-md-3 text-start font-bold font-color1">
-                                    Birth
-                                </div>
-                                <div class="col-md-7 text-start">
-                                    <input id="birth" name="birth" class="form-control" type="date" value="{{ old('birth') }}"/>
-                                    <span id="startDateSelected"></span>
-                                </div>
-                                @error('birth')
-                                <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            
-                        </div>
-                            <!-- End of the Birth of the Group 1 -->
-            </div>
-            <!-- End of the THIRD ROW of the Group 1 -->
-            
-
-                <!-- Start of the Fourth ROW of the Group 1 -->
-                <div class="row mb-3">
+                <div class="row">
 
                     <!-- Start of the Brand of the Group 1 -->
                 <div class="col-xl-4">
                     
                 <div class="row d-flex align-items-center">
                         <div class="col-1 ps-1 me-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 16 16"><path fill="#1D214E" d="M8 8.5c-.08 0-.15-.02-.22-.05L1.28 5.2a.5.5 0 0 1 0-.9l6.5-3.25c.14-.07.31-.07.45 0l6.5 3.25a.5.5 0 0 1 0 .9l-6.5 3.25c-.07.04-.15.05-.22.05ZM2.62 4.75L8 7.44l5.38-2.69L8 2.06L2.62 4.75Z"/><path fill="#1D214E" d="M8 11.75c-.08 0-.15-.02-.22-.05l-6.5-3.25a.5.5 0 0 1 0-.9l3.25-1.62c.25-.12.55-.02.67.22c.12.25.02.55-.22.67L2.62 8L8 10.69L13.38 8l-2.36-1.18a.488.488 0 0 1-.22-.67c.12-.25.42-.35.67-.22l3.25 1.62a.5.5 0 0 1 0 .9l-6.5 3.25c-.07.04-.15.05-.22.05Z"/><path fill="#1D214E" d="M8 15c-.08 0-.15-.02-.22-.05l-6.5-3.25a.5.5 0 0 1 0-.9l3.25-1.62c.25-.12.55-.02.67.22c.12.25.02.55-.22.67l-2.36 1.18L8 13.94l5.38-2.69l-2.36-1.18a.488.488 0 0 1-.22-.67c.12-.25.42-.35.67-.22l3.25 1.62a.5.5 0 0 1 0 .9l-6.5 3.25c-.07.04-.15.05-.22.05Z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 24 24"><path fill="#1D214E" d="M13.07 10.41a5 5 0 0 0 0-5.82A3.39 3.39 0 0 1 15 4a3.5 3.5 0 0 1 0 7a3.39 3.39 0 0 1-1.93-.59M5.5 7.5A3.5 3.5 0 1 1 9 11a3.5 3.5 0 0 1-3.5-3.5m2 0A1.5 1.5 0 1 0 9 6a1.5 1.5 0 0 0-1.5 1.5M16 17v2H2v-2s0-4 7-4s7 4 7 4m-2 0c-.14-.78-1.33-2-5-2s-4.93 1.31-5 2m11.95-4A5.32 5.32 0 0 1 18 17v2h4v-2s0-3.63-6.06-4Z"/></svg>
                         </div>
                         <div class="col-md-2 text-start font-bold font-color1">
                             Brand
                         </div>
                         <div class="col-md-7 text-start">
                             
-                            <select value="{{ old('brandName') }}"  name="brandName" class="form-select formSelect" aria-label="Default select">
+                            <select class="form-select formSelect" aria-label="Default select">
                                 <option disabled selected="">Select Brand</option>
-                                @foreach ($brand as $brand)
-                                <option value="{{$brand->id }}">{{ $brand->brandName }}</option>
-                                @endforeach
+                                <option value="1">Group</option>
+                                <option value="2">Nespresso</option>
+                                <option value="3">Coach</option>
+                                <option value="4">Mothercare</option>
+                                <option value="5">Early Learning Centre</option>
                             </select>
                         </div>
-                        @error('brandName')
-                        <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                            {{ $message }}
-                        </div>
-                        @enderror
                     </div>
                     
                 </div>
-                    <!-- End of the Brand of the Group 1 -->
-
-                        <!-- Start of the Password of the Group 1 -->
-                    <div class="col-xl-4">
-                        
-                        <div class="row d-flex align-items-center">
-                                <div class="col-1 ps-1 me-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 512 512"><path fill="none" stroke="#1D214E" stroke-linejoin="round" stroke-width="32" d="M218.1 167.17c0 13 0 25.6 4.1 37.4c-43.1 50.6-156.9 184.3-167.5 194.5a20.17 20.17 0 0 0-6.7 15c0 8.5 5.2 16.7 9.6 21.3c6.6 6.9 34.8 33 40 28c15.4-15 18.5-19 24.8-25.2c9.5-9.3-1-28.3 2.3-36s6.8-9.2 12.5-10.4s15.8 2.9 23.7 3c8.3.1 12.8-3.4 19-9.2c5-4.6 8.6-8.9 8.7-15.6c.2-9-12.8-20.9-3.1-30.4s23.7 6.2 34 5s22.8-15.5 24.1-21.6s-11.7-21.8-9.7-30.7c.7-3 6.8-10 11.4-11s25 6.9 29.6 5.9c5.6-1.2 12.1-7.1 17.4-10.4c15.5 6.7 29.6 9.4 47.7 9.4c68.5 0 124-53.4 124-119.2S408.5 48 340 48s-121.9 53.37-121.9 119.17ZM400 144a32 32 0 1 1-32-32a32 32 0 0 1 32 32Z"/></svg>
-                                </div>
-                                <div class="col-md-3 text-start font-bold font-color1">
-                                    Password
-                                </div>
-                                <div class="col-md-7">
-                                    <input name="password" type="password" class="form-control" id="inputEmail3">
-                                </div>
-                                @error('password')
-                                <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            
-                        </div>
-                            <!-- End of the Password of the Group 1 -->
-
-                        <!-- Start of the Password of the Group 1 -->
-                    <div class="col-xl-4">
-                        
-                        <div class="row d-flex align-items-center">
-                                <div class="col-1 ps-1 me-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 512 512"><path fill="none" stroke="#1D214E" stroke-linejoin="round" stroke-width="32" d="M218.1 167.17c0 13 0 25.6 4.1 37.4c-43.1 50.6-156.9 184.3-167.5 194.5a20.17 20.17 0 0 0-6.7 15c0 8.5 5.2 16.7 9.6 21.3c6.6 6.9 34.8 33 40 28c15.4-15 18.5-19 24.8-25.2c9.5-9.3-1-28.3 2.3-36s6.8-9.2 12.5-10.4s15.8 2.9 23.7 3c8.3.1 12.8-3.4 19-9.2c5-4.6 8.6-8.9 8.7-15.6c.2-9-12.8-20.9-3.1-30.4s23.7 6.2 34 5s22.8-15.5 24.1-21.6s-11.7-21.8-9.7-30.7c.7-3 6.8-10 11.4-11s25 6.9 29.6 5.9c5.6-1.2 12.1-7.1 17.4-10.4c15.5 6.7 29.6 9.4 47.7 9.4c68.5 0 124-53.4 124-119.2S408.5 48 340 48s-121.9 53.37-121.9 119.17ZM400 144a32 32 0 1 1-32-32a32 32 0 0 1 32 32Z"/></svg>
-                                </div>
-                                <div class="col-md-3 text-start font-bold font-color1">
-                                    Confirm Password
-                                </div>
-                                <div class="col-md-7">
-                                    <input name="password_confirmation" type="password" class="form-control" id="inputEmail3">
-                                </div>
-                            </div>
-                            
-                        </div>
-                            <!-- End of the Password of the Group 1 -->
-        </div>
-            <!-- End of the Fourth ROW of the Group 1 -->
-            
-
-                <!-- Start of the FIFTH ROW of the Group 1 -->
-                <div class="row mb-3">
-
-                    <!-- Start of the Id Number of the Group 1 -->
-                    <div class="col-xl-4">
-                        
-                        <div class="row d-flex align-items-center">
-                                <div class="col-1 ps-1 me-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 24 24"><path fill="#1D214E" d="M22 3H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 16H2V5h20v14m-3-1l2-2l-1.5-2h-1.65c-.22-.63-.35-1.3-.35-2s.13-1.37.35-2h1.65L21 8l-2-2c-1.3 1-2.27 2.38-2.72 4c-.18.64-.28 1.31-.28 2s.1 1.36.28 2c.45 1.61 1.42 3 2.72 4M9 12a3 3 0 0 0 3-3a3 3 0 0 0-3-3a3 3 0 0 0-3 3a3 3 0 0 0 3 3m0-4a1 1 0 0 1 1 1a1 1 0 0 1-1 1a1 1 0 0 1-1-1a1 1 0 0 1 1-1m6 8.59c0-2.5-3.97-3.59-6-3.59s-6 1.09-6 3.59V18h12v-1.41M5.5 16c.72-.5 2.2-1 3.5-1c1.3 0 2.77.5 3.5 1h-7Z"/></svg>
-                        </div>
-                        <div class="col-md-2 text-start font-bold font-color1">
-                            Phone
-                        </div>
-                        <div class="col-md-7">
-                            <input value="{{ old('phoneNumb') }}"  type="number"  name="phoneNumb" class="form-control" id="inputEmail3">
-                        </div>
-                        @error('phoneNumb')
-                        <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    
-                </div>
-                    <!-- End of the ID Number of the Group 1 -->
+                    <!-- End of the NIP of the Group 1 -->
             </div>
-            <!-- End of the FIFTH ROW of the Group 1 -->
-
-            </div>
+            <!-- End of the THIRD ROW of the Group 1 -->
                 
             </div>
         </div>
@@ -475,15 +310,10 @@
                         </div>
                         <div class="col-xl ms-0">
                             <div class="form-floating">
-                                <textarea value="{{ old('alamat') }}"  name="alamat" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
                             </div>
                         </div>
                     </div>
-                    @error('alamat')
-                    <div class="col small m-0 alert alert-danger shadow-sm">
-                        {{ $message }}
-                    </div>
-                    @enderror
                         
                 </div>
                         <!-- End of the Address of the Group 1 -->
@@ -523,15 +353,10 @@
                         </div>
                         <div class="col-xl ms-0">
                             <div class="form-floating">
-                                <textarea value="{{ old('jobDesc') }}"  name="jobDesc" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
                             </div>
                         </div>
                     </div>
-                    @error('jobDesc')
-                    <div class="col small m-0 alert alert-danger shadow-sm">
-                        {{ $message }}
-                    </div>
-                    @enderror
                         
                 </div>
                         <!-- End of the Job Description of the Group 3 -->
@@ -571,15 +396,10 @@
                         </div>
                         <div class="col-xl ms-0">
                             <div class="form-floating">
-                                <textarea value="{{ old('jobPurpose') }}" name="jobPurpose" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
                             </div>
                         </div>
                     </div>
-                    @error('jobPurpose')
-                    <div class="col small m-0 alert alert-danger shadow-sm">
-                        {{ $message }}
-                    </div>
-                    @enderror
                         
                 </div>
                         <!-- End of the Job Purposes of the Group 4 -->
@@ -617,18 +437,8 @@
                             Bank Name
                         </div>
                         <div class="col-xl-6">
-                            <select value="{{ old('bankName') }}"  name="bankName" class="form-select formSelect" aria-label="Default select">
-                                    <option disabled selected="">Select Bank</option>
-                                    @foreach ($bank as $banka)
-                                    <option value="{{$banka->id }}">{{ $banka->bankName }}</option>
-                                    @endforeach
-                                </select>
+                            <input type="text" class="form-control" id="inputEmail3">
                         </div>
-                        @error('bankName')
-                        <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                            {{ $message }}
-                        </div>
-                        @enderror
                     </div>
 
                     </div>
@@ -642,7 +452,7 @@
                                     Tax Status
                                 </div>
                                 <div class="col-xl-8">
-                                    S0
+                                    <input type="text" class="form-control" id="inputEmail3">
                                 </div>
                         </div>
                             
@@ -662,13 +472,8 @@
                             Account Name
                         </div>
                         <div class="col-xl-6">
-                            <input value="{{ old('accName') }}" name="accName" type="text" class="form-control" id="inputEmail3">
+                            <input type="text" class="form-control" id="inputEmail3">
                         </div>
-                        @error('accName')
-                        <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                            {{ $message }}
-                        </div>
-                        @enderror
                     </div>
 
                     </div>
@@ -682,13 +487,8 @@
                                 NPWP
                             </div>
                             <div class="col-xl-8">
-                                <input value="{{ old('npwp') }}" name="npwp" type="number" class="form-control" id="inputEmail3">
+                                <input type="text" class="form-control" id="inputEmail3">
                             </div>
-                            @error('npwp')
-                            <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                {{ $message }}
-                            </div>
-                            @enderror
                     </div>
                         
                     </div>
@@ -707,13 +507,8 @@
                             Account Number
                         </div>
                         <div class="col-xl-6">
-                            <input value="{{ old('accNumb') }}" name="accNumb" type="number" class="form-control" id="inputEmail3">
+                            <input type="text" class="form-control" id="inputEmail3">
                         </div>
-                        @error('accNumb')
-                        <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                            {{ $message }}
-                        </div>
-                        @enderror
                     </div>
 
                     </div>
@@ -779,13 +574,8 @@
                             Membership No.
                         </div>
                         <div class="col-xl-6">
-                            <input value="{{ old('bpjsKerja') }}" name="bpjsKerja" type="number" class="form-control" id="inputEmail3">
+                            <input type="text" class="form-control" id="inputEmail3">
                         </div>
-                        @error('bpjsKerja')
-                        <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                            {{ $message }}
-                        </div>
-                        @enderror
                     </div>
 
                     </div>
@@ -799,13 +589,8 @@
                                     Health Insurance Membership No.
                                 </div>
                                 <div class="col-xl-8">
-                                    <input value="{{ old('health') }}" name="health" type="number" class="form-control" id="inputEmail3">
+                                    <input type="text" class="form-control" id="inputEmail3">
                                 </div>
-                                @error('health')
-                                <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                                    {{ $message }}
-                                </div>
-                                @enderror
                         </div>
                             
                         </div>
@@ -899,13 +684,8 @@
                             Membership No.
                         </div>
                         <div class="col-xl-6">
-                            <input value="{{ old('bpjsSehat') }}" name="bpjsSehat" type="number" class="form-control" id="inputEmail3">
+                            <input type="text" class="form-control" id="inputEmail3">
                         </div>
-                        @error('bpjsSehat')
-                        <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
-                            {{ $message }}
-                        </div>
-                        @enderror
                     </div>
 
                     </div>
@@ -920,17 +700,17 @@
         </div>
 
         </div>
-        <!-- Start of the Button -->
-            <div class="row ">
-                <div class="col d-flex justify-content-center mb-5 shadow-md">
-                    <button type="submit" class="submitBtn p-3 me-5 font-bold font-color1">Submit</button>
-                    <button type="reset" class="clearBtn p-3 font-bold font-color1">Clear</button>
-                </div>
-
-
-            </div>
-        <!-- End of the Button -->
         </div>
+                <!-- Start of the Button -->
+                    <div class="row ">
+                        <div class="col d-flex justify-content-center mb-5">
+                            <button type="button" class="submitBtn p-3 me-5 font-bold font-color1">Submit</button>
+                            <button type="reset" class="clearBtn p-3 font-bold font-color1">Clear</button>
+                        </div>
+
+
+                    </div>
+                <!-- End of the Button -->
         </div>
     </form>
     

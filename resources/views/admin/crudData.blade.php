@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin-layout>
     <!-- Content Start -->
 
 <!-- Content Start -->
@@ -578,6 +578,95 @@
     </div>
                 </div>
         <!-- End of Table Content 6 --> 
+        
+
+    <!-- Start of Table Content 7 -->
+
+    <div class="row d-flex justify-content-center mb-2 mt-5 gap-5">
+
+
+        <!-- Start of Table profiladmin -->
+        <div class="col-xl bg-employee g-col-6 accordion-flush" id="profiladminDataParent">
+            <div class="accordion-item">
+            <div class="container row-gap-3" style="margin: 30px 25px 25px 25px;">
+            
+                                
+            <div class="row d-flex justify-content-between mb-2 accordion-header" id="flush-headingOne" >
+                <button class="ms-2 ps-1 text-start font-bold font-color1 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#profiladminData" aria-expanded="true" aria-controls="flush-collapseOne">
+                <div class="col-xl-3 me-n5 align-self-center ">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 24 24"><path fill="#1D214E" d="M12 23C6.443 21.765 2 16.522 2 11V5l10-4l10 4v6c0 5.524-4.443 10.765-10 12ZM4 6v5a10.58 10.58 0 0 0 8 10a10.58 10.58 0 0 0 8-10V6l-8-3Z"/><circle cx="12" cy="8.5" r="2.5" fill="#1D214E"/><path fill="#1D214E" d="M7 15a5.782 5.782 0 0 0 5 3a5.782 5.782 0 0 0 5-3c-.025-1.896-3.342-3-5-3c-1.667 0-4.975 1.104-5 3Z"/></svg>
+                    <span class="ms-2 ps-1 text-start font-bold font-color1">Data Admin</span> 
+                </div>
+            </button>
+                                    
+    
+                <div class="row accordion-collapse collapse close" id="profiladminData"  aria-labelledby="flush-headingOne" data-bs-parent="#profiladminDataParent">
+                    <div class="col-xl h-20 accordion-body">
+                    <div class="col d-flex justify-content-start" >
+                    </div>
+    
+                    <div class="container-fluid " >
+    
+                    <div class="row">
+                    <div class="col-sm">
+                    <div class="table-responsive-xl">
+                        <div class="col-auto d-flex justify-content-end font-bold ">
+                            <button type="button" class="btnaddData shadow-sm p-2 align-items-center font-color1" data-bs-toggle="modal" data-bs-target="#profiladminNew">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="#1D214E" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                            </svg>
+                            Add New
+                            </button>
+                        </div>
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col-8">Name</th>
+                                <th scope="col-8">Email</th>
+                                <th scope="col" text-align="right">action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($profiladmin as $profiladminnya)
+                                @if($profiladminnya->type === 3)
+                            <tr>
+                                <th scope="row">{{$profiladminnya->id}}</th>
+                                <td>{{$profiladminnya->name}}</td>
+                                <td>{{$profiladminnya->email}}</td>
+                                <td class="pe-3" align="right">
+                                    <form action="{{ route('profiladmin.Hapus', $profiladminnya->id) }}" method="post">
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#profiladminEdit">Edit</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
+                                    @csrf
+                                    @method('delete')
+                                    </form>
+                                </td>
+                            </tr>
+                            @endif
+                            @endforeach
+                            </tbody>
+                        </table>
+                    
+                    </div>
+    
+                    </div>
+    
+                    </div>
+    
+                    </div>
+                
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Table profiladmin -->
+        </div>
+    </div>
+                </div>
+        <!-- End of Table Content 7 --> 
                             
 
 </div>
@@ -595,4 +684,4 @@
 @include('/modal/modalCrudAdminProfileHr')
 @include('/modal/modalCrudAdminProfileAdmin')
     <!-- Content End -->
-</x-layout>
+</x-admin-layout>

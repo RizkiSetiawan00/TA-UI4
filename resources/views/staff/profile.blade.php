@@ -22,7 +22,7 @@
   
               <div class="row d-flex justify-content-center ">
                   <div class="col-auto ">
-                      <p class="text-lowercase text2" >{{ $title1->title1name }}</p>
+                      <p class="text-lowercase text2" >assistant</p>
                   </div>
   
               </div>

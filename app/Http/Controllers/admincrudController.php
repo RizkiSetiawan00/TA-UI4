@@ -17,6 +17,16 @@ use Illuminate\Http\RedirectResponse;
  
 class admincrudController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function showPage()
     {
         $bank=banks::all();

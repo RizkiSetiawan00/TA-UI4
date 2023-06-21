@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class addnewFormRequest extends FormRequest
+class editstaffFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +29,6 @@ class addnewFormRequest extends FormRequest
             'nip' => 'required|min:3|max:11|unique:users',
             'phoneNumb' => 'required|min:3|max:20',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:8|confirmed',
             'alamat' => 'required|min:10',
             'jobDesc' => 'required|min:10',
             'jobPurpose' => 'required|min:10',
@@ -64,8 +63,6 @@ class addnewFormRequest extends FormRequest
             'title1Name.required' => 'Can not be blank',
             'lokasiName.required' => 'Can not be blank',
             'brandName.required' => 'Can not be blank',
-            'password.required' => 'Can not be blank',
-            'password_confirmation.required' => 'Can not be blank',
             'alamat.required' => 'Can not be blank',
             'jobDesc.required' => 'Can not be blank',
             'jobPurpose.required' => 'Can not be blank',

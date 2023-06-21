@@ -1,4 +1,4 @@
-<x-layout>
+<x-hr-layout>
     <!-- Content Start -->
 
     <div class="container mt-3 pt-5">
@@ -118,7 +118,7 @@
                           <p class="font-bold font-color1 " style="margin:0px;padding:0;"  >Date Of Birth</p>
                         </div>
                         <div class="col">
-                          <p class="font-color1 " style="margin:0px;padding:0;"  >{{$showProfile->birth}}</p>
+                          <p class="font-color1 " style="margin:0px;padding:0;"  >{{  date('d F Y', strtotime($showProfile->birth))  }}</p>
                         </div>
                     </div>
         
@@ -146,7 +146,7 @@
         
               <div class="row justify-content-center align-items-center text-center pb-2 py-1 m-0">
                 <div class="col my-2 py-2 d-grid">
-                  <a href="/hr/staff_moredetails" class="text-decoration-none text-body buttonDetails"target="_blank" rel="noopener noreferrer">
+                  <a href="/hr/staff_moredetails/{{$showProfile->id}}" class="text-decoration-none text-body buttonDetails"target="_blank" rel="noopener noreferrer">
                   <button type="button" class="p-2 font-bold" style="background: none; border: none;">More Details</button>
                   </a>
                 </div>
@@ -167,4 +167,4 @@
         </div>
         
     <!-- Content End -->
-</x-layout>
+</x-hr-layout>

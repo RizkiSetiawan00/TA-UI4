@@ -54,10 +54,10 @@
             <div class="col-lg">
               <ul class="navbar-nav ">
                 <li class="nav-item fivepx">
-                  <a class="nav-link active text-white " aria-current="page" href="/staff/index">Dashboard</a>
+                  <a class="nav-link active text-white " aria-current="page" href="{{route('manager.home')}}">Dashboard</a>
                 </li>
                 <li class="nav-item fivepx">
-                  <a class="nav-link text-white" href="{{route('staff.profile')}}">Profile</a>
+                  <a class="nav-link text-white" href="{{route('manager.profile')}}">Profile</a>
                 </li>
                 <li class="nav-item fivepx">
                   <a class="nav-link text-white" href="worksheet.php">Projects</a>

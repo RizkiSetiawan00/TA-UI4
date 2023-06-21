@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Kirschbaum\PowerJoins\PowerJoins;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class brands extends Model
 {
-    use HasFactory;
+    use HasFactory, PowerJoins;
     protected $table = 'brands';
     
     protected $fillable = [
