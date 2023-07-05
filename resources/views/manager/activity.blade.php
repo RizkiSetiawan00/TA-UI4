@@ -122,6 +122,7 @@
                             </form>
                             </td>
                         </tr>
+                        @include('/modal/modalAddActivityManager')
                         @endforeach
                         </tbody>
                     </table>

@@ -51,8 +51,8 @@
                     
                     <select value="{{ old('user_id') }}" class="form-select formSelect"  name="user_id" aria-label="Default select">
                         <option disabled selected="">Select Staff</option>
-                        @foreach ($showStaff as $staffnya)
-                        <option value="{{$staffnya->id}}">{{ $staffnya->name }}</option>
+                        @foreach ($staff2 as $ada)
+                        <option value="{{$ada->id}}">{{ $ada->name }}</option>
                         @endforeach
                     </select>
                     @error('user_id')
@@ -94,11 +94,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('manager.saveProject') }}" method="POST">
+                    <form action="{{ route('manager.editProject', $projeknya->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
+                        @method("put")
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">To do :</label>
-                        <input type="text" class="form-control" id="recipient-name" name="desc" placeholder="What kind of job would you like to add?" value="{{ old('desc') }}">
+                        <input type="text" class="form-control" id="recipient-name" name="desc" placeholder="What kind of job would you like to add?" value="{{old('desc', $projeknya->desc)}}">
                         @error('desc')
                         <div class="mb-3 small m-0 alert alert-danger mt-1">
                             {{ $message }}
@@ -123,7 +124,7 @@
     
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Deadline :</label>
-                        <input type="datetime-local" class="form-control" id="deadline" name="deadline" value="{{ old('desc') }}">
+                        <input type="datetime-local" class="form-control" id="deadline" name="deadline" value="{{old('deadline', $projeknya->deadline)}}">
                         @error('deadline')
                         <div class="mb-3 small m-0 alert alert-danger mt-1">
                             {{ $message }}
@@ -135,10 +136,10 @@
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">Staff incharge :</label>
                         
-                        <select value="{{ old('user_id') }}" class="form-select formSelect"  name="user_id" aria-label="Default select">
+                        <select value="{{old('user_id', $projeknya->user_id)}}" class="form-select formSelect"  name="user_id" aria-label="Default select">
                             <option disabled selected="">Select Staff</option>
-                            @foreach ($showStaff as $staffnya)
-                            <option value="{{$staffnya->id}}">{{ $staffnya->name }}</option>
+                            @foreach ($staff2 as $ada)
+                            <option value="{{$ada->id}}">{{ $ada->name }}</option>
                             @endforeach
                         </select>
                         @error('user_id')
@@ -150,7 +151,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Description : </label>
-                        <textarea type="text" class="form-control" id="recipient-name" name="sta_desc" placeholder="Put some detail here."value="{{ old('sta_desc') }}"></textarea>
+                        <textarea type="text" class="form-control" id="recipient-name" name="sta_desc" placeholder="Put some detail here.">
+                            {{old('sta_desc', $projeknya->sta_desc)}}
+                        </textarea>
                         @error('sta_desc')
                         <div class="mb-3 small m-0 alert alert-danger mt-1">
                             {{ $message }}

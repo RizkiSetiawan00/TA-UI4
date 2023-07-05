@@ -105,16 +105,16 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 });
    
 //Manager Routes List
-Route::middleware(['auth', 'user-access:manager'])->prefix('aktivitas')->group(function () {
+Route::middleware(['auth', 'user-access:manager'])->prefix('manager')->group(function () {
    
-    Route::get('/manager/dashboard', [HomeController::class, 'managerHome'])->name('manager.home');
-    Route::get('/manager/project', [managerController::class, 'showProject'])->name('manager.project');
-    Route::get('/manager/profile', [managerController::class, 'profileManager'])->name('manager.profile');
+    Route::get('/dashboard', [HomeController::class, 'managerHome'])->name('manager.home');
+    Route::get('/project', [managerController::class, 'showProject'])->name('manager.project');
+    Route::get('/profile', [managerController::class, 'profileManager'])->name('manager.profile');
         
     Route::controller(managerController::class)->group(function () {
-        Route::POST('/manager/project/save', 'saveProject')->name('manager.saveProject');
-        Route::delete('/manager/project/delete/{id}','deleteProject')->name('manager.deleteProject');
-        Route::PUT('/manager/project/edit/{id}','editProject')->name('manager.editProject');
+        Route::POST('/project/save', 'saveProject')->name('manager.saveProject');
+        Route::delete('/project/delete/{id}','deleteProject')->name('manager.deleteProject');
+        Route::PUT('/project/edit/{id}','editProject')->name('manager.editProject');
     });
 });
 

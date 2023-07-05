@@ -18,9 +18,9 @@ class managerController extends Controller
 
     public function showProject()
     {
-        $showStaff = User::all();
+        $staff2 = User::all();
         $project = aktivitas::all();
-        return view('/manager/activity', compact('showStaff', 'project'));
+        return view('/manager/activity', compact('staff2', 'project'));
     }
 
     public function profileManager()
@@ -50,18 +50,17 @@ class managerController extends Controller
     {
         $hapusprojek=aktivitas::findOrFail($id);
         $hapusprojek->delete();
-        return redirect('/manager/activity')->with('success', 'A lokasinya Name added successfully!');
+        return redirect('/manager/project')->with('success', 'A lokasinya Name added successfully!');
     }
-    public function editProject(Request $request,$id)
+    public function editProject(projectsFormRequest $request,$id)
     {
         $editprojek=aktivitas::findOrFail($id);
     
            $editprojek->update([
                "desc" =>$request->desc,
                "deadline" =>$request->deadline,
-               "status" =>$request->status,
                "sta_desc" =>$request->sta_desc,
-               "user_id" =>$request->user
+               "user_id" =>$request->user_id
            ]);
     
            return redirect('/manager/project')->with('success', 'A lokasinya Name added successfully!');
