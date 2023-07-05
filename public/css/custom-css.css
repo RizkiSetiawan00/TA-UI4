@@ -1,3 +1,28 @@
+/* SCROLL BAR */
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;height: 5px; 
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, #E9E9E9 0%, #BFBAD5 100%);
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #1D214E; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3f459b; 
+  }
+
+
+
 @font-face {
     font-family: 'work sans regular';
     src: url(../font/Work-sans/WorkSans-Regular.ttf);

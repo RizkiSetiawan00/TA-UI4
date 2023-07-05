@@ -5,12 +5,22 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\hrController;
 use App\Http\Controllers\dashController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\managerController;
 use App\Http\Controllers\admincrudController;
 use App\Http\Controllers\tambahbaruController;
  
+    /*
 Route::get('/', function () {
+    if (auth()->check()) {
+        return view('homepage-feed');
+    } 
+    else {
+        return view('/auth/login');
+    }
     return view('/auth/login');
 })->name('home');
+    */
+Route::get('/', [HomeController::class, 'toTheHome'])->name('home');
  
 Auth::routes();
    
@@ -18,21 +28,23 @@ Auth::routes();
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     //Route::get('/staff/profile', [dashController::class, 'profilenya'])->name('staff.profile');
     Route::get('/staff/profile', [dashController::class, 'profilenya'])->name('staff.profile');
-    Route::get('/staff/index', [HomeController::class, 'staffHome'])->name('staff.home');
+    Route::get('/staff/dashboard', [HomeController::class, 'staffHome'])->name('staff.home');
+    Route::get('/staff/project', [dashController::class, 'showProject'])->name('staff.project');
 });
    
 //HR Routes List
 Route::middleware(['auth', 'user-access:hr'])->group(function () {
    
-    Route::get('/hr/index', [HomeController::class, 'hrHome'])->name('hr.home');
+    Route::get('/hr/dashboard', [HomeController::class, 'hrHome'])->name('hr.home');
     Route::get('/hr/staffList',[hrController::class, "list_Staff"])->name('hr.stafflists');
     Route::get('/hr/staff_moredetails/{id}',[hrController::class, "moredetails_Staff"]);
     Route::get('/hr/edit_staff/{id}',[tambahbaruController::class, "staffeditnya"])->name('staff.Edit');
     Route::get('/hr/activity',[hrController::class, "aktivitas"]);
+    Route::get('/hr/addnew_staff',[hrController::class, "addnew_Staff"]);
     
     //Staff
     Route::controller(tambahbaruController::class)->prefix('hr')->group(function () {
-        Route::post('/tambahbaru', 'tambahbaru')->name('staff.save');
+        Route::post('/hr/tambahbaru', 'tambahbaru')->name('staff.save');
         Route::delete('/hr/delete/{id}','staffHapus')->name('staff.Hapus');
         Route::PUT('/hr/update_staff/{id}','staffupdatenya')->name('staff.Update');
     });
@@ -41,7 +53,7 @@ Route::middleware(['auth', 'user-access:hr'])->group(function () {
 //Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
    
-    Route::get('/admin/index', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('/admin/dashboard', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/admin/crudData',[admincrudController::class, "showPage"])->name('admin.crudData');
 
     
@@ -82,7 +94,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     //profilhr & admin
     Route::controller(admincrudController::class)->prefix('user')->group(function () {
-        Route::PUT('/profilhrSave', "profilhrSave")->name('profilhr.save');
+        Route::PUT('/profilhrSave/{id}', "profilhrSave")->name('profilhr.save');
         Route::delete('/profilhrDelete/{id}','profilhrHapus')->name('profilhr.Hapus');
         Route::PUT('/profilhrEdit/{id}','profilhrEditnya')->name('profilhr.Edit');
         
@@ -93,9 +105,17 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 });
    
 //Manager Routes List
-Route::middleware(['auth', 'user-access:manager'])->group(function () {
+Route::middleware(['auth', 'user-access:manager'])->prefix('aktivitas')->group(function () {
    
-    Route::get('/manager/index', [HomeController::class, 'managerHome'])->name('manager.home');
+    Route::get('/manager/dashboard', [HomeController::class, 'managerHome'])->name('manager.home');
+    Route::get('/manager/project', [managerController::class, 'showProject'])->name('manager.project');
+    Route::get('/manager/profile', [managerController::class, 'profileManager'])->name('manager.profile');
+        
+    Route::controller(managerController::class)->group(function () {
+        Route::POST('/manager/project/save', 'saveProject')->name('manager.saveProject');
+        Route::delete('/manager/project/delete/{id}','deleteProject')->name('manager.deleteProject');
+        Route::PUT('/manager/project/edit/{id}','editProject')->name('manager.editProject');
+    });
 });
 
 
@@ -125,7 +145,6 @@ Route::PUT('/brandEdit/{id}',[admincrudController::class,'brandEditnya']);
 //Karyawan
 //Route::get('/staff/index',[dashController::class, "dashboard"]);
 //Route::get('/staff/profile',[dashController::class, "profile"]);
-Route::get('/staff/activity',[dashController::class, "activity"]);
 
 //HR
 //Route::get('/hr/index',[hrController::class, "dashboard_hr"]);

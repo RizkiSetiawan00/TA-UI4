@@ -1,7 +1,7 @@
-<x-hr-layout>
+
+<x-manager-layout>
     <!-- Content Start -->
 
-<!-- Content Start -->
 <div class="container text-center" style="margin-top: 20px;">
     <div class="row d-flex justify-content-center mb-2 gap-5">
   
@@ -17,7 +17,7 @@
   
               <div class="row d-flex justify-content-center">
                   <div class="col-auto">
-                      <h2 class="font-bold font-color1" style="margin-top: 15px;" >{{$profileAjanya->name}}</h2>
+                      <h2 class="font-bold font-color1" style="margin-top: 15px;" >{{ Auth::user()->name }}</h2>
                   </div>
               </div>
   
@@ -57,7 +57,7 @@
                       <div class="col-4 text-start">
                           <p class="font-bold text1" >Email</p>
                       </div>
-                      <div class="col text-truncate" style="max-width: 150px">
+                      <div class="col text-start text-truncate" style="max-width: 150px">
                           <p class=" text1"  >{{$profileAjanya->email}}</p>
                       </div>
                   </div>
@@ -75,33 +75,10 @@
       <div class="col-8 bg-employee g-col-6" >
           <div class="container row-gap-3" style="margin: 30px 25px 25px 25px;">
   
-              <div class="row justify-content-between pe-4 pb-5">
+              <div class="row ">
   
-                  <div class="col d-flex align-items-center" >
-                      <h2 class="font-color1 font-bold align-items-center">Employee Profile</h2>
-                  </div>
-                  <div class="col d-flex justify-content-end me-5 align-items-center mb-3" >
-                      
-                      <div class="absen align-items-center">
-                            <a href="/hr/edit_staff/{{$profileAjanya->id}}" class="text-body text-decoration-none font-color1">
-                                <button type="button" class="btn btn-outline font-color1 font-bold"><strong>Edit Profile</strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="#1D214E" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                </svg>
-                                </button>
-                            </a>
-                      </div>
-                      
-                      <div class="absen3 align-items-center ms-2">
-                        <form action="{{ route('staff.Hapus', $profileAjanya->id) }}" method="post">
-                        @csrf
-                        @method('delete')
-                                <button type="submit" class="btn btn-outline font-color1 font-bold">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 24 24"><path fill="#1D214E" d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12M8 9h8v10H8V9m7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5Z"/></svg>
-                                </button>
-                        </form>
-                      </div>
+                  <div class="col d-flex justify-content-start" >
+                      <h2 class="font-color1 font-bold">Employee Profile</h2>
                   </div>
   
                   <div class="container-fluid " >
@@ -180,7 +157,7 @@
                       <!-- Start of Address -->
                       <div class="row mb-5 mt-3">
                           <div class="col p-10 g-col-6">
-                              <div class="row g-0">
+                              <div class="row g-0 ">
                                   <div class="col-xl-2 align-self-center">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="45" viewBox="0 0 256 256"><path fill="currentColor" d="M128 64a40 40 0 1 0 40 40a40 40 0 0 0-40-40Zm0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24Zm0-112a88.1 88.1 0 0 0-88 88c0 31.4 14.51 64.68 42 96.25a254.19 254.19 0 0 0 41.45 38.3a8 8 0 0 0 9.18 0a254.19 254.19 0 0 0 41.37-38.3c27.45-31.57 42-64.85 42-96.25a88.1 88.1 0 0 0-88-88Zm0 206c-16.53-13-72-60.75-72-118a72 72 0 0 1 144 0c0 57.23-55.47 105-72 118Z"/></svg>
                                       <div class="row">
@@ -230,7 +207,7 @@
                   </div>
                   </div>
                   </div>
-  
+
                   <!-- Start of Job Purposes -->
       <div class="row d-flex justify-content-center mb-2 mt-5">
           <div class="container-fluid bg-employee g-col-6" >
@@ -249,7 +226,7 @@
                       <!-- Start of JobDesc -->
                       <div class="row mb-3">
                           <div class="col">
-                              <div class="row g-0">
+                              <div class="row g-0 d-flex">
                                   <div class="col-xl-2 align-self-center">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="45" viewBox="0 0 24 24"><path fill="currentColor" d="M4 21q-.825 0-1.413-.588T2 19V8q0-.825.588-1.413T4 6h4V4q0-.825.588-1.413T10 2h4q.825 0 1.413.588T16 4v2h4q.825 0 1.413.588T22 8v11q0 .825-.588 1.413T20 21H4Zm0-2h16V8H4v11Zm6-13h4V4h-4v2ZM4 19V8v11Z"/></svg>
                                       <div class="row">
@@ -260,6 +237,7 @@
                                   </div>
                                   <div class="col-xl-10">
                                   <div class="text-start text-wrap overflow-scroll bg-opacity-0 border1 mx-auto p-2" style="min-height: 130px;">
+                                      <p>
                                         {{$profileAjanya->jobPurpose}}
                                       </p>
                                   </div>
@@ -395,7 +373,7 @@
                           <div class="col-xl float-start " style="padding: -10px;">
   
                               <div class="row align-items-center pt-2">
-                                  <div class="col-xl-1">
+                                  <div class="col-xl-1"> 
                                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                     width="35px" viewBox="0 0 2000.000000 2000.000000"
                                     preserveAspectRatio="xMidYMid meet">
@@ -567,5 +545,6 @@
     </div>
   </div>
   
-    <!-- Content End -->
-</x-hr-layout>
+
+<!-- Content End -->
+</x-manager-layout>

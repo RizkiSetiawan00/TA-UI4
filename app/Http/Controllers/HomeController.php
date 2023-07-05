@@ -15,6 +15,26 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+
+    //Home
+    function toTheHome() {
+        
+        if (auth()->user()->type == 'admin') {
+            return redirect()->route('admin.home');
+        }
+        else if (auth()->user()->type == 'manager') {
+            return redirect()->route('manager.home');
+        }
+        else if (auth()->user()->type == 'hr') {
+            return redirect()->route('hr.home');
+        }
+        else if (auth()->user()->type == 'hr') {
+            return redirect()->route('staff.home');
+        }
+        else{
+            return redirect()->route('staff.home');
+        }
+    }
  
     /**
      * Show the application dashboard.

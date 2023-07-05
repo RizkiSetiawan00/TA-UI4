@@ -8,23 +8,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-        <form action="{{ route('profilhr.save', $profilhrnya->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('profilhr.save', $profilhrnya->id) }}" method="POST">
             @csrf
-            @method("put")
+            @method('PUT')
             <label for="profilhrName" class="col-form-label">Select User : </label>
             
             <select name="name" class="form-select" aria-label="Default select">
                 <option disabled selected>Select Profile</option>
-                @foreach($profilhr as $profilhrnya1)
-                @if($profilhrnya1->type !== 3)
-                <option value="{{$profilhrnya1->id}}">{{$profilhrnya1->name}}</option>
-                @endif
+                @foreach($profilhr2 as $pHR)
+                <option value="{{$pHR->id}}">{{$pHR->name}}</option>
                 @endforeach
             </select>
 
             <label for="profilhrName" class="col-form-label">Will be changed into : </label>
-            <select class="form-select" Disabled aria-label="Disabled select example">
-                <option disabled selected value="3" name="type">Human Resources</option>
+            <select class="form-select"  aria-label="Disabled select example">
+                <option selected value="3" name="type">Human Resources</option>
               </select>
     </div>
     <div class="modal-footer">

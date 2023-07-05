@@ -60,7 +60,7 @@
                   <a class="nav-link text-white" href="{{route('staff.profile')}}">Profile</a>
                 </li>
                 <li class="nav-item fivepx">
-                  <a class="nav-link text-white" href="worksheet.php">Projects</a>
+                  <a class="nav-link text-white" href="{{route('staff.project')}}">Projects</a>
                 </li>
                 <!--
                 <li class="nav-item dropdown fivepx">
@@ -78,12 +78,12 @@
                             <li><a class="dropdown-item " href="convey_req.php">Convey Request</a></li>
                             <li><a class="dropdown-item " href="convey_confirm.php">Convey Confirmation</a></li>
                           </ul>
-                    </li>
+                      </li>
         
-                  </ul>
+                    </ul>
                   
-                </li>
-              -->
+                  </li>
+                  -->
         
               </ul>
               </div>
@@ -99,7 +99,30 @@
                   </div>
                 -->
                   
-                  <div class="col-1">
+                  <div class="col-1 d-flex">
+                    
+                    <li class="nav-item dropdown fivepx align-self-center mt-0 mb-2 pt-0">
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item dropdown " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" id="dropdownMenuClickable" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false" v-pre>
+                        <img src="{{('/img/Man2.png')}}" class="img-md logoPer pfp" alt="...">
+                      </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">            
+           
+                          <li>
+                            
+                              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                              </a>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                  @csrf
+                              </form>
+                          </li>  
+            
+                        </ul>
+                      
+                      </li>
+                      
+
+                      <!--
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <img src="{{('/img/Man2.png')}}" class="img-md logoPer pfp" alt="...">
                       </a>
@@ -107,11 +130,12 @@
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                    </div>
+                      </div>
+                      
+                      -->
                   </div>
                   
                   

@@ -45,135 +45,189 @@
                 </div>
             </div>
             <!-- End of Topbar -->
-            
-            <!-- Start of Table Content -->
 
-        <div class="row d-flex justify-content-center mb-2 mt-5 gap-5">
+    <!-- Start of Table Content 1 -->
 
-        <!-- Start of Table -->
-        <div class="col-xl bg-employee g-col-6 " >
-            <div class="container row-gap-3" style="margin: 30px 25px 25px 25px;">
+<div class="row d-flex justify-content-center mb-2 mt-5 gap-5">
 
-                <div class="row ">
-                    <div class="col-xl h-20">
-                    <div class="col d-flex justify-content-start" >
-                    </div>
 
-                    <div class="container-fluid " >
+    <!-- Start of Table WIP -->
+    <div class="col-xl bg-employee g-col-6 accordion-flush" id="wipParent">
+        <div class="accordion-item">
+        <div class="container row-gap-3" style="margin: 30px 25px 25px 25px;">
+        
+                            
+        <div class="row d-flex justify-content-between mb-2 accordion-header" id="wipHeadOne" >
+            <button class="ms-2 ps-1 text-start font-bold font-color1 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wip" aria-expanded="true" aria-controls="flush-collapseOne">
+            <div class="col-xl-3 me-n5 align-self-center ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 24 24"><path fill="#1D214E" d="m18.13 12l1.26-1.26c.44-.44 1-.68 1.61-.74V9l-6-6H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h6v-1.87l.13-.13H5V5h7v7h6.13M14 4.5l5.5 5.5H14V4.5m5.13 9.33l2.04 2.04L15.04 22H13v-2.04l6.13-6.13m3.72.36l-.98.98l-2.04-2.04l.98-.98c.19-.2.52-.2.72 0l1.32 1.32c.2.2.2.53 0 .72Z"/></svg>
+                    <span class="ms-2 ps-1 text-start font-bold font-color1">Your Work In Progress</span> 
+            </div>
+        </button>
+                                
 
-                    <div class="row">
-                    <div class="col-sm"><div class="table-responsive-xl">
-                        <form action="">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">To Do</th>
-                                <th scope="col">Created At</th>
-                                <th scope="col">Deadline</th>
-                                <th scope="col">Worked By</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Cell</td>
-                                <td>Cell</td>
-                                <td>Cell</td>
-                                <td>Cell</td>
-                                <td>Cell</td>
-                                <td>Cell</td>
-                                <td>
-                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staffModal">Edit</button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        </form>
-                    
-                    </div>
+            <div class="row accordion-collapse collapse close" id="wip"  aria-labelledby="flush-headingOne" data-bs-parent="#wipParent">
+                <div class="col-xl h-20 accordion-body">
+                <div class="col d-flex justify-content-start" >
+                </div>
 
-                    </div>
+                <div class="container-fluid " >
 
-                    </div>
-
-                    </div>
+                <div class="row">
+                <div class="col-sm">
+                <div class="table-responsive-xl">
+                    <form action="/postBank" method="POST">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col" style="width: 350px">To Do</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Deadline</th>
+                            <th scope="col" style="width: 150px">Worked By</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Description</th>
+                            <th scope="col" style="width: 150px">action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Make a Brochure Design for Sales Marketing Campaign</td>
+                            <td>2023/06/17</td>
+                            <td>2023/07/05</td>
+                            <td>M. Rizki Nada S</td>
+                            <td>On Progress	</td>
+                            <td>Working on it!</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Need Microsoft Office to be installed on Mrs. Sandra's laptop</td>
+                            <td>2023/06/20</td>
+                            <td>2023/06/25</td>
+                            <td></td>
+                            <td>On Hold	</td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </form>
                 
                 </div>
+
                 </div>
-            </div>
-        </div>
-        <!-- End of Table -->
+
                 </div>
-        <!-- End of Table Content -->
-        
-            
-            <!-- Start of Table Content -->
 
-            <div class="row d-flex justify-content-center mb-2 mt-5 gap-5">
-
-<!-- Start of Table -->
-<div class="col-xl bg-employee g-col-6 " >
-    <div class="container row-gap-3" style="margin: 30px 25px 25px 25px;">
-
-        <div class="row ">
-            <div class="col-xl h-20">
-            <div class="col d-flex justify-content-start" >
-            </div>
-
-            <div class="container-fluid " >
-
-            <div class="row">
-            <div class="col-sm"><div class="table-responsive-xl">
-                <form action="">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">To Do</th>
-                        <th scope="col">Created At</th>
-                        <th scope="col">Deadline</th>
-                        <th scope="col">Worked By</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                </form>
+                </div>
             
             </div>
-
             </div>
-
-            </div>
-
-            </div>
-        
-        </div>
         </div>
     </div>
+    <!-- End of Table WIP -->
+    </div>
 </div>
-<!-- End of Table -->
+            </div>
+    <!-- End of Table Content 1 --> 
+    
+
+    <!-- Start of Table Content 2 -->
+
+<div class="row d-flex justify-content-center mb-2 mt-5 gap-5">
+
+
+    <!-- Start of Table All Projects -->
+    <div class="col-xl bg-employee g-col-6 accordion-flush" id="allProjectParent">
+        <div class="accordion-item">
+        <div class="container row-gap-3" style="margin: 30px 25px 25px 25px;">
+        
+                            
+        <div class="row d-flex justify-content-between mb-2 accordion-header" id="flush-headingOne" >
+            <button class="ms-2 ps-1 text-start font-bold font-color1 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#allProject" aria-expanded="true" aria-controls="flush-collapseOne">
+            <div class="col-xl-3 me-n5 align-self-center ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 24 24"><path fill="#1D214E" d="M17 17v2a1 1 0 1 0 2 0V4H5v11H3V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v16a3 3 0 0 1-3 3H4a3 3 0 0 1-3-3v-2h16Z"/></svg>
+                    <span class="ms-2 ps-1 text-start font-bold font-color1">All Projects</span> 
+            </div>
+        </button>
+                                
+
+            <div class="row accordion-collapse collapse close" id="allProject"  aria-labelledby="flush-headingOne" data-bs-parent="#allProjectParent">
+                <div class="col-xl h-20 accordion-body">
+                <div class="col d-flex justify-content-start" >
+                </div>
+
+                <div class="container-fluid " >
+
+                <div class="row">
+                <div class="col-sm">
+                <div class="table-responsive-xl">
+                    <form action="/postBank" method="POST">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col" style="width: 350px">To Do</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Deadline</th>
+                            <th scope="col" style="width: 150px">Worked By</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Description</th>
+                            <th scope="col" style="width: 150px">action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Make a Brochure Design for Sales Marketing Campaign</td>
+                            <td>2023/06/17</td>
+                            <td>2023/07/05</td>
+                            <td>M. Rizki Nada S</td>
+                            <td>On Progress	</td>
+                            <td>Working on it!</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Need Microsoft Office to be installed on Mrs. Sandra's laptop</td>
+                            <td>2023/06/20</td>
+                            <td>2023/06/25</td>
+                            <td></td>
+                            <td>On Hold	</td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </form>
+                
+                </div>
+
+                </div>
+
+                </div>
+
+                </div>
+            
+            </div>
+            </div>
         </div>
-<!-- End of Table Content -->
+    </div>
+    <!-- End of Table All Projects -->
+    </div>
+</div>
+            </div>
+    <!-- End of Table Content 2 --> 
 
 </div>
 

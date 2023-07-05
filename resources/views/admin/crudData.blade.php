@@ -631,7 +631,7 @@
                             </thead>
                             <tbody>
                                 @foreach($profiladmin as $profiladminnya)
-                                @if($profiladminnya->type === 3)
+                                @if($profiladminnya->id !== Auth::user()->id)
                             <tr>
                                 <th scope="row">{{$profiladminnya->id}}</th>
                                 <td>{{$profiladminnya->name}}</td>

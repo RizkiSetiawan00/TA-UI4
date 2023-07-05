@@ -95,8 +95,31 @@
                     </div>
                   </div>
                 -->
-                  
-                  <div class="col-1">
+                  <div class="col-1 d-flex">
+                    
+                    <li class="nav-item dropdown fivepx align-self-center mt-n1 mb-2 pt-0">
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item dropdown " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" id="dropdownMenuClickable" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false" v-pre>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64px" viewBox="0 0 256 256"><path fill="white" d="M128 26a102 102 0 1 0 102 102A102.12 102.12 0 0 0 128 26ZM71.44 198a66 66 0 0 1 113.12 0a89.8 89.8 0 0 1-113.12 0ZM94 120a34 34 0 1 1 34 34a34 34 0 0 1-34-34Zm99.51 69.64a77.53 77.53 0 0 0-40-31.38a46 46 0 1 0-51 0a77.53 77.53 0 0 0-40 31.38a90 90 0 1 1 131 0Z"/></svg>
+                        <!--<img src="{{('/img/Man2.png')}}" class="img-md logoPer pfp" alt="...">-->
+                      </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">            
+           
+                          <li>
+                            
+                              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                              </a>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                  @csrf
+                              </form>
+                          </li>  
+            
+                        </ul>
+                      
+                      </li>
+                      
+
+                      <!--
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <img src="{{('/img/Man2.png')}}" class="img-md logoPer pfp" alt="...">
                       </a>
@@ -104,13 +127,13 @@
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                    </div>
+                      </div>
+                      
+                      -->
                   </div>
-                  
                   
         
                   

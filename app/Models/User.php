@@ -7,8 +7,9 @@ namespace App\Models;
 use App\Models\banks;
 use App\Models\brands;
 use App\Models\title1s;
-use App\Models\lokasinyas;
+use App\Models\aktivitas;
  
+use App\Models\lokasinyas;
 use App\Models\departemens;
 use Laravel\Sanctum\HasApiTokens;
 use Kirschbaum\PowerJoins\PowerJoins;
@@ -35,7 +36,10 @@ class User extends Authenticatable
         'name',
         'idNumb',
         'joinDate',
+        'email',
         'nip',
+        'birth',
+        'phoneNumb',
         'password',
         'alamat',
         'jobDesc',
@@ -46,7 +50,12 @@ class User extends Authenticatable
         'health',
         'bpjsKerja',
         'bpjsSehat',
-        'type'
+        'type',
+        'title1_id',
+        'bank_id',
+        'lokasinya_id',
+        'brand_id',
+        'departemen_id'
     ];
  
     protected $hidden = [
@@ -70,4 +79,12 @@ class User extends Authenticatable
             get: fn ($value) =>  ["user", "admin", "manager", "hr"][$value], //0 = User, 1 = Admin, 2 = Manager, 3 = HR
         );
     }
+
+    public function aktivitas()
+    {
+        return $this->hasMany(aktivitas::class);
+    }
+
+    
+    
 }

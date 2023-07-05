@@ -34,10 +34,26 @@ class admincrudController extends Controller
         $brand=brands::all();
         $lokasi=lokasinyas::all();
         $title1=title1s::all();
-        $profilhr=User::all();
-        $profiladmin=User::all();
+        //$profilhr2=User::all();
+
+        //For to update more user type
+        $profilhr2 = DB::table('users')
+        ->where('users.type','!=',3)
+        ->select('users.*')
+        ->get();
+
+        //For the list
+        $profilhr = DB::table('users')
+        ->where('users.type',3)
+        ->select('users.*')
+        ->get();
+
+        $profiladmin = DB::table('users')
+        ->where('users.type',1)
+        ->select('users.*')
+        ->get();
         //dd($profilhr);
-        return view('/admin/crudData', compact('bank','departemen','brand','lokasi','title1','profilhr','profiladmin'));
+        return view('/admin/crudData', compact('bank','departemen','brand','lokasi','title1','profilhr','profilhr2','profiladmin'));
     }
 
     // bankSave
@@ -50,14 +66,14 @@ class admincrudController extends Controller
                 ];
                 DB::table('banks')->insert($simpanBank);
             }
-            return redirect()->back()->with('Success', 'A Bank Name added successfully!');
+            return redirect()->back()->with('success', 'A Bank Name added successfully!');
     }
  
     public function bankHapus($id)
     {
          $hapusBank=Banks::findOrFail($id);
          $hapusBank->delete();
-         return back()->with('Success', 'A Bank Name deleted successfully!');
+         return back()->with('success', 'A Bank Name deleted successfully!');
     }
     public function bankEditnya(Request $request,$id)
     {
@@ -67,14 +83,14 @@ class admincrudController extends Controller
                "bankName" =>$request->bankName
            ]);
     
-           return redirect('/admin/crudData')->with('Success', 'A Bank Name edited successfully!');
+           return redirect('/admin/crudData')->with('success', 'A Bank Name edited successfully!');
     }
  
     // TITLE1
     public function title1Save(Request $request)
     { 
         title1s::create($request->all());
-        return redirect('/admin/crudData')->with('Success', 'A Title Name Added successfully!');
+        return redirect('/admin/crudData')->with('success', 'A Title Name Added successfully!');
     }
  
  
@@ -82,7 +98,7 @@ class admincrudController extends Controller
     {
          $hapustitle1=title1s::findOrFail($id);
          $hapustitle1->delete();
-         return redirect('/admin/crudData')->with('Success', 'A Title Name Deleted successfully!');
+         return redirect('/admin/crudData')->with('success', 'A Title Name Deleted successfully!');
     }
     public function title1Editnya(Request $request,$id)
     {
@@ -92,14 +108,14 @@ class admincrudController extends Controller
                "title1Name" =>$request->title1Name
            ]);
     
-           return redirect('/admin/crudData')->with('Success', 'A Title Name Edited successfully!');
+           return redirect('/admin/crudData')->with('success', 'A Title Name Edited successfully!');
     }
 
     // brandSave
     public function brandSave(Request $request)
     { 
         brands::create($request->all());
-        return redirect('/admin/crudData')->with('Success', 'A Brand Name added successfully!');
+        return redirect('/admin/crudData')->with('success', 'A Brand Name added successfully!');
     }
  
     public function brandHapus($id)
@@ -107,7 +123,7 @@ class admincrudController extends Controller
 
         $hapusbrand=brands::findOrFail($id);
         $hapusbrand->delete();
-         return redirect('/admin/crudData')->with('Success', 'A Brand Name deleted successfully!');
+         return redirect('/admin/crudData')->with('success', 'A Brand Name deleted successfully!');
     }
     public function brandEditnya(Request $request,$id)
     {
@@ -117,7 +133,7 @@ class admincrudController extends Controller
                "brandName" =>$request->brandName
            ]);
     
-           return view('/admin/crudData')->with('Success', 'A Brand Name Edited successfully!');
+           return view('/admin/crudData')->with('success', 'A Brand Name Edited successfully!');
     }
     
 
@@ -125,7 +141,7 @@ class admincrudController extends Controller
     public function departemenSave(Request $request)
     { 
         departemens::create($request->all());
-        return redirect('/admin/crudData')->with('Success', 'A Departemen Name added successfully!');
+        return redirect('/admin/crudData')->with('success', 'A Departemen Name added successfully!');
     }
  
     public function departemenHapus($id)
@@ -133,7 +149,7 @@ class admincrudController extends Controller
 
         $hapusdepartemen=departemens::findOrFail($id);
         $hapusdepartemen->delete();
-         return redirect('/admin/crudData')->with('Success', 'A Departemen Name deleted successfully!');
+         return redirect('/admin/crudData')->with('success', 'A Departemen Name deleted successfully!');
     }
     public function departemenEditnya(Request $request,$id)
     {
@@ -143,7 +159,7 @@ class admincrudController extends Controller
                "departemenName" =>$request->departemenName
            ]);
     
-           return redirect('/admin/crudData')->with('Success', 'A departemen Name Edited successfully!');
+           return redirect('/admin/crudData')->with('success', 'A departemen Name Edited successfully!');
     }
     
 
@@ -151,7 +167,7 @@ class admincrudController extends Controller
     public function lokasinyaSave(Request $request)
     { 
         lokasinyas::create($request->all());
-        return redirect('/admin/crudData')->with('Success', 'A lokasinya Name added successfully!');
+        return redirect('/admin/crudData')->with('success', 'A lokasinya Name added successfully!');
     }
  
     public function lokasinyaHapus($id)
@@ -159,7 +175,7 @@ class admincrudController extends Controller
 
         $hapuslokasinya=lokasinyas::findOrFail($id);
         $hapuslokasinya->delete();
-         return redirect('/admin/crudData')->with('Success', 'A lokasi Name deleted successfully!');
+         return redirect('/admin/crudData')->with('success', 'A lokasi Name deleted successfully!');
     }
     public function lokasinyaEditnya(Request $request,$id)
     {
@@ -169,27 +185,31 @@ class admincrudController extends Controller
                "lokasiName" =>$request->lokasiName
            ]);
     
-           return redirect('/admin/crudData')->with('Success', 'A lokasi Name Edited successfully!');
+           return redirect('/admin/crudData')->with('success', 'A lokasi Name Edited successfully!');
     }
     
 //0 = User, 1 = Admin, 2 = Manager, 3 = HR
     // profilhr 
     public function profilhrSave(Request $request,$id)
     { 
+        $ada = 3;
         //Only need to change its Type status
-        $updateprofilhrnya=User::findOrFail($id);
+        $updateprofilhrnya=User::find($id);
         $updateprofilhrnya->update([
-            "type" =>$request->type
+            'type'=>$request->type,
         ]);
-        return redirect('/admin/crudData')->with('Success', 'A Departemen Name added successfully!');
+
+        //This could work
+        //$variableknya->update(['name'=>'Nama']);
+        return redirect('/admin/crudData')->with('success', 'A Departemen Name added successfully!');
     }
  
     public function profilhrHapus($id)
     {
 
-        $hapusprofilhr=User::findOrFail($id);
+        //$hapusprofilhr=User::findOrFail($id);
         $hapusprofilhr->delete();
-         return redirect('/admin/crudData')->with('Success', 'A Departemen Name deleted successfully!');
+         return redirect('/admin/crudData')->with('success', 'A Departemen Name deleted successfully!');
     }
     public function profilhrEditnya(Request $request,$id)
     {
@@ -199,7 +219,7 @@ class admincrudController extends Controller
                "type" =>$request->type
            ]);
     
-           return redirect('/admin/crudData')->with('Success', 'A departemen Name Edited successfully!');
+           return redirect('/admin/crudData')->with('success', 'A departemen Name Edited successfully!');
     }
  
 }

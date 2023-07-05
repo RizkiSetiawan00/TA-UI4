@@ -1,11 +1,11 @@
 <x-layout>
     <!-- Content Start -->
     <div class="container-xl mt-5 pt-5 d-flex justify-content-center">
+      
         <div class="row-xl-9 m-5 loginCard" >
           <div class="col-xl p-5">
-      
-            @if (session('failure'))
-                <p class="col my-3 mx-0  alert alert-danger shadow-sm"> {{ session('failure') }} </p>
+            @if (session('error'))
+                <p class="col my-3 mx-0  alert alert-danger shadow-sm"> {{ session('error') }} </p>
             @endif
               <form action="/login" method="POST" >
                 @csrf
@@ -30,11 +30,6 @@
                   <button type="submit" class="btn btn-primary">
                     {{ __('Login') }}</button>
   
-                    @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
-                    @endif
               </form>
       
           </div>

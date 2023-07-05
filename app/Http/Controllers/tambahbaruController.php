@@ -72,33 +72,7 @@ class tambahbaruController extends Controller
 */
     public function tambahbaru(addnewFormRequest $request) {
         
-        $addProfile = new User;
-        $addProfile->name = $request->input('name');
-        $addProfile->joinDate = $request->date('joinDate');
-        $addProfile->birth = $request->date('birth');
-        $addProfile->idNumb = $request->input('idNumb');
-        $addProfile->nip = $request->input('nip');
-        $addProfile->phoneNumb = $request->input('phoneNumb');
-        $addProfile->email = $request->input('email');
-        $addProfile->password = $request->input('password');
-        $addProfile->alamat = $request->input('alamat');
-        $addProfile->jobDesc = $request->input('jobDesc');
-        $addProfile->jobPurpose = $request->input('jobPurpose');
-        $addProfile->accName = $request->input('accName');
-        $addProfile->npwp = $request->input('npwp');
-        $addProfile->accNumb = $request->input('accNumb');
-        $addProfile->bpjsKerja = $request->input('bpjsKerja');
-        $addProfile->health = $request->input('health');
-        $addProfile->bpjsSehat = $request->input('bpjsSehat');
-       
-        $addProfile->title1_id = $request->input('title1Name');
-        $addProfile->bank_id = $request->input('bankName');
-        $addProfile->lokasinya_id = $request->input('lokasiName');
-        $addProfile->brand_id = $request->input('brandName');
-        $addProfile->departemen_id = $request->input('departemenName');
-
-        
-        $addProfile->save();
+        User::create($request->validated());
         return redirect('/hr/staffList')->with('berhasil','A New Staff Succesfully Added!');
 
     }
@@ -169,5 +143,12 @@ class tambahbaruController extends Controller
         ]);
     
         return redirect('/hr/staffList')->with('berhasil','A Staff Profile Succesfully Edited!');
+    }
+
+    function staffHapus($id) {
+
+        $hapusStaff=User::findOrFail($id);
+        $hapusStaff->delete();
+        return redirect('/hr/staffList')->with('berhasil','A Staff Profile Succesfully Deleted!');
     }
 }

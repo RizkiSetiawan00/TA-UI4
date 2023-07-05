@@ -34,7 +34,7 @@ class dashController extends Controller
         return view('/admin/crudData');
     }
 
-    public function activity()
+    public function showProject()
     {
         return view('/staff/activity');
     }
@@ -43,11 +43,6 @@ class dashController extends Controller
     {
         return view('/home');
     }
-
-    public function handleAdmin()
-    {
-        return 'ur an admin!';
-    }    
 
     public function loginNya(Request $request)
     {
@@ -71,7 +66,18 @@ class dashController extends Controller
     }
 
     function profilenya() {
-        return view('/staff/profile')->with('user', auth()->user());
+        $profileAjanya = DB::table('users')
+                    ->where('users.id',auth()->user()->id)
+                    ->join('banks', 'banks.id', '=', 'users.bank_id')
+                    ->join('lokasinyas', 'lokasinyas.id', '=', 'users.lokasinya_id')
+                    ->join('departemens', 'departemens.id', '=', 'users.departemen_id')
+                    ->join('brands', 'brands.id', '=', 'users.brand_id')
+                    ->join('title1s', 'title1s.id', '=', 'users.title1_id')
+                    ->select('users.*', 'title1s.title1Name', 'banks.bankName', 'brands.brandName', 'departemens.departemenName', 'lokasinyas.lokasiName')
+                    ->first();
+
+        //dd($profileAjanya);
+        return view('/staff/profile', compact('profileAjanya'));
     }
 
     public function profile() {

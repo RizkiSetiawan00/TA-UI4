@@ -154,14 +154,14 @@
                             </div>
                             <div class="col-md-7 text-start">
                                 
-                                <select value="{{ old('departemenName') }}" class="form-select formSelect"  name="departemenName" aria-label="Default select">
+                                <select value="{{ old('departemen_id') }}" class="form-select formSelect"  name="departemen_id" aria-label="Default select">
                                     <option disabled selected="">Select Department</option>
                                     @foreach ($depart as $depart)
                                     <option value="{{$depart->id}}">{{ $depart->departemenName }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            @error('departemenName')
+                            @error('departemen_id')
                             <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
                                 {{ $message }}
                             </div>
@@ -212,14 +212,14 @@
                             </div>
                             <div class="col-md-7 text-start">
                                 
-                                <select value="{{ old('title1Name') }}"  name="title1Name" class="form-select formSelect" aria-label="Default select">
+                                <select value="{{ old('title1_id') }}"  name="title1_id" class="form-select formSelect" aria-label="Default select">
                                     <option disabled selected="">Select Title</option>
                                     @foreach ($title1 as $title1)
                                     <option value="{{$title1->id}}">{{ $title1->title1Name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            @error('title1Name')
+                            @error('title1_id')
                             <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
                                 {{ $message }}
                             </div>
@@ -241,14 +241,14 @@
                             </div>
                             <div class="col-md-7 text-start">
                                 
-                            <select value="{{ old('lokasiName') }}"  name="lokasiName" class="form-select formSelect" aria-label="Default select">
+                            <select value="{{ old('lokasinya_id') }}"  name="lokasinya_id" class="form-select formSelect" aria-label="Default select">
                                     <option disabled selected="">Select Location</option>
                                     @foreach ($lokasi as $lokasi)
                                     <option value="{{$lokasi->id}}">{{ $lokasi->lokasiName }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            @error('lokasiName')
+                            @error('lokasinya_id')
                             <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
                                 {{ $message }}
                             </div>
@@ -353,14 +353,14 @@
                         </div>
                         <div class="col-md-7 text-start">
                             
-                            <select value="{{ old('brandName') }}"  name="brandName" class="form-select formSelect" aria-label="Default select">
+                            <select value="{{ old('brand_id') }}"  name="brand_id" class="form-select formSelect" aria-label="Default select">
                                 <option disabled selected="">Select Brand</option>
                                 @foreach ($brand as $brand)
                                 <option value="{{$brand->id }}">{{ $brand->brandName }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        @error('brandName')
+                        @error('brand_id')
                         <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
                             {{ $message }}
                         </div>
@@ -617,14 +617,14 @@
                             Bank Name
                         </div>
                         <div class="col-xl-6">
-                            <select value="{{ old('bankName') }}"  name="bankName" class="form-select formSelect" aria-label="Default select">
+                            <select value="{{ old('bank_id') }}"  name="bank_id" class="form-select formSelect" aria-label="Default select">
                                     <option disabled selected="">Select Bank</option>
                                     @foreach ($bank as $banka)
                                     <option value="{{$banka->id }}">{{ $banka->bankName }}</option>
                                     @endforeach
                                 </select>
                         </div>
-                        @error('bankName')
+                        @error('bank_id')
                         <div class="col-md-7 small m-0 alert alert-danger shadow-sm">
                             {{ $message }}
                         </div>

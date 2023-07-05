@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('aktivitas', function (Blueprint $table) {
             $table->id();
             $table->string('desc');
-            $table->timestamp('dealine');
-            $table->string('status');
+            $table->dateTime('deadline');
+            $table->string('status')->default(false)->nullable();
             $table->text('sta_desc');
             $table->timestamps();
+
+            $table->unsignedBiginteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
