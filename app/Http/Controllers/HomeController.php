@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
  
+use DateTime;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
  
 class HomeController extends Controller
@@ -43,7 +45,33 @@ class HomeController extends Controller
      */
     public function staffHome()
     {
-        return view('/staff/index');
+        $timeToday = Carbon::now();
+        $Morning = new DateTime();
+        $timeToday2 = Carbon::createFromTimeString($timeToday);
+        //$timeToday2 = Carbon::createFromTimeString('05:00:00');
+
+        //24 Hour Format
+        $pagi = Carbon::createFromTimeString('05:00:00');
+        $siang = Carbon::createFromTimeString('12:00:00');
+        $sore = Carbon::createFromTimeString('15:00:00');
+        $malam = Carbon::createFromTimeString('20:00:00');
+        $messageDashboard = '';
+
+        if ($timeToday2 <= $siang && $timeToday2 >= $pagi) {
+            $messageDashboard = 'Morning';
+        }
+        else if ($timeToday2 <= $sore && $timeToday2 >= $siang ) {
+            $messageDashboard = 'Afternoon';
+        }
+        else if ($timeToday2 <= $malam && $timeToday2 >= $sore ) {
+            $messageDashboard = 'Evening';
+        }
+        //else if ($timeToday2 <= $pagi && $timeToday2 >= $malam ) {
+        else {
+            $messageDashboard = 'Night';
+        }
+        //dd($messageDashboard);
+        return view('/staff/index', compact('messageDashboard'));
     }
  
     /**
@@ -53,7 +81,33 @@ class HomeController extends Controller
      */
     public function hrHome()
     {
-        return view('/hr/index');
+        $timeToday = Carbon::now();
+        $Morning = new DateTime();
+        $timeToday2 = Carbon::createFromTimeString($timeToday);
+        //$timeToday2 = Carbon::createFromTimeString('05:00:00');
+        
+        //24 Hour Format
+        $pagi = Carbon::createFromTimeString('05:00:00');
+        $siang = Carbon::createFromTimeString('12:00:00');
+        $sore = Carbon::createFromTimeString('15:00:00');
+        $malam = Carbon::createFromTimeString('20:00:00');
+        $messageDashboard = '';
+
+        if ($timeToday2 <= $siang && $timeToday2 >= $pagi) {
+            $messageDashboard = 'Morning';
+        }
+        else if ($timeToday2 <= $sore && $timeToday2 >= $siang ) {
+            $messageDashboard = 'Afternoon';
+        }
+        else if ($timeToday2 <= $malam && $timeToday2 >= $sore ) {
+            $messageDashboard = 'Evening';
+        }
+        //else if ($timeToday2 <= $pagi && $timeToday2 >= $malam ) {
+        else {
+            $messageDashboard = 'Night';
+        }
+        //dd($messageDashboard);
+        return view('/hr/index', compact('messageDashboard'));
     }
  
     /**
@@ -63,7 +117,33 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('/admin/index');
+        $timeToday = Carbon::now();
+        $Morning = new DateTime();
+        $timeToday2 = Carbon::createFromTimeString($timeToday);
+        //$timeToday2 = Carbon::createFromTimeString('05:00:00');
+        
+        //24 Hour Format
+        $pagi = Carbon::createFromTimeString('05:00:00');
+        $siang = Carbon::createFromTimeString('12:00:00');
+        $sore = Carbon::createFromTimeString('15:00:00');
+        $malam = Carbon::createFromTimeString('20:00:00');
+        $messageDashboard = '';
+
+        if ($timeToday2 <= $siang && $timeToday2 >= $pagi) {
+            $messageDashboard = 'Morning';
+        }
+        else if ($timeToday2 <= $sore && $timeToday2 >= $siang ) {
+            $messageDashboard = 'Afternoon';
+        }
+        else if ($timeToday2 <= $malam && $timeToday2 >= $sore ) {
+            $messageDashboard = 'Evening';
+        }
+        //else if ($timeToday2 <= $pagi && $timeToday2 >= $malam ) {
+        else {
+            $messageDashboard = 'Night';
+        }
+        //dd($messageDashboard);
+        return view('/admin/index', compact('messageDashboard'));
     }
     
     /**
@@ -73,6 +153,32 @@ class HomeController extends Controller
      */
     public function managerHome()
     {
-        return view('/manager/index');
+        $timeToday = Carbon::now();
+        $Morning = new DateTime();
+        $timeToday2 = Carbon::createFromTimeString($timeToday);
+        //$timeToday2 = Carbon::createFromTimeString('05:00:00');
+        
+        //24 Hour Format
+        $pagi = Carbon::createFromTimeString('05:00:00');
+        $siang = Carbon::createFromTimeString('12:00:00');
+        $sore = Carbon::createFromTimeString('15:00:00');
+        $malam = Carbon::createFromTimeString('20:00:00');
+        $messageDashboard = '';
+
+        if ($timeToday2 <= $siang && $timeToday2 >= $pagi) {
+            $messageDashboard = 'Morning';
+        }
+        else if ($timeToday2 <= $sore && $timeToday2 >= $siang ) {
+            $messageDashboard = 'Afternoon';
+        }
+        else if ($timeToday2 <= $malam && $timeToday2 >= $sore ) {
+            $messageDashboard = 'Evening';
+        }
+        //else if ($timeToday2 <= $pagi && $timeToday2 >= $malam ) {
+        else {
+            $messageDashboard = 'Night';
+        }
+        //dd($messageDashboard);
+        return view('/manager/index', compact('messageDashboard'));
     }
 }

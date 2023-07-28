@@ -133,7 +133,7 @@ class admincrudController extends Controller
                "brandName" =>$request->brandName
            ]);
     
-           return view('/admin/crudData')->with('success', 'A Brand Name Edited successfully!');
+           return redirect('/admin/crudData')->with('success', 'A Brand Name Edited successfully!');
     }
     
 
@@ -141,7 +141,7 @@ class admincrudController extends Controller
     public function departemenSave(Request $request)
     { 
         departemens::create($request->all());
-        return redirect('/admin/crudData')->with('success', 'A Departemen Name added successfully!');
+        return redirect('/admin/crudData')->with('success', 'A Departmen Name added successfully!');
     }
  
     public function departemenHapus($id)
@@ -149,7 +149,7 @@ class admincrudController extends Controller
 
         $hapusdepartemen=departemens::findOrFail($id);
         $hapusdepartemen->delete();
-         return redirect('/admin/crudData')->with('success', 'A Departemen Name deleted successfully!');
+         return redirect('/admin/crudData')->with('success', 'A Departmen Name deleted successfully!');
     }
     public function departemenEditnya(Request $request,$id)
     {
@@ -159,7 +159,7 @@ class admincrudController extends Controller
                "departemenName" =>$request->departemenName
            ]);
     
-           return redirect('/admin/crudData')->with('success', 'A departemen Name Edited successfully!');
+           return redirect('/admin/crudData')->with('success', 'A Departmen Name Edited successfully!');
     }
     
 
@@ -167,7 +167,7 @@ class admincrudController extends Controller
     public function lokasinyaSave(Request $request)
     { 
         lokasinyas::create($request->all());
-        return redirect('/admin/crudData')->with('success', 'A lokasinya Name added successfully!');
+        return redirect('/admin/crudData')->with('success', 'A Location Name added successfully!');
     }
  
     public function lokasinyaHapus($id)
@@ -175,7 +175,7 @@ class admincrudController extends Controller
 
         $hapuslokasinya=lokasinyas::findOrFail($id);
         $hapuslokasinya->delete();
-         return redirect('/admin/crudData')->with('success', 'A lokasi Name deleted successfully!');
+         return redirect('/admin/crudData')->with('success', 'A Location Name deleted successfully!');
     }
     public function lokasinyaEditnya(Request $request,$id)
     {
@@ -185,23 +185,29 @@ class admincrudController extends Controller
                "lokasiName" =>$request->lokasiName
            ]);
     
-           return redirect('/admin/crudData')->with('success', 'A lokasi Name Edited successfully!');
+           return redirect('/admin/crudData')->with('success', 'A Location Name Edited successfully!');
     }
     
 //0 = User, 1 = Admin, 2 = Manager, 3 = HR
     // profilhr 
     public function profilhrSave(Request $request,$id)
     { 
-        $ada = 3;
         //Only need to change its Type status
         $updateprofilhrnya=User::find($id);
-        $updateprofilhrnya->update([
-            'type'=>$request->type,
-        ]);
 
-        //This could work
-        //$variableknya->update(['name'=>'Nama']);
-        return redirect('/admin/crudData')->with('success', 'A Departemen Name added successfully!');
+        if ($updateprofilhrnya->type == "user") {
+
+            $updateprofilhrnya->update([
+                'type'=>$request->type,
+            ]);
+        
+            //dd($updateprofilhrnya);
+            return redirect('/admin/crudData')->with('success', 'An User Access Successfully Changed into HR!');
+
+        }
+        
+        //dd($updateprofilhrnya);
+        return redirect('/admin/crudData')->with('fail', 'Failed! The said user is not a regular user!');
     }
  
     public function profilhrHapus($id)

@@ -24,6 +24,21 @@ class hrController extends Controller
     {
         $this->middleware('auth');
     }
+
+    function search_Staff()
+    {
+        $pencarian = $_GET['search'];
+        $profileAjanya = DB::table('users')
+        ->where('name','LIKE','%'.$pencarian.'%')
+        ->join('title1s', 'title1s.id', '=', 'users.title1_id')
+        ->select('users.*', 'title1s.title1Name')
+        ->orderBy('name', 'desc')
+        ->paginate(10);
+
+        //$profileAjanya = User::where('name','LIKE','%'.$pencarian.'%')->with('title1')->get();
+        //dd($hasilcari);
+        return view("/hr/staffList2", compact('profileAjanya'));
+    }
  
 
     public function aktivitas() {
@@ -32,16 +47,18 @@ class hrController extends Controller
 
     public function list_Staff() {
         //This is use to show all of the data
-        //$profileAjanya = User::all();
-
         
+        //$data = DB::table('customers')->orderBy('CustomerName', 'desc')->paginate(3);
+        //return view('index', compact('data'));
+
         $profileAjanya = DB::table('users')
         //->where('users.type',1)
         ->join('title1s', 'title1s.id', '=', 'users.title1_id')
         ->select('users.*', 'title1s.title1Name')
-        ->get();                      
-    
-        //FIND OUT HOW TO CHANGE DATE FORMAT
+        ->orderBy('name', 'desc')
+        ->paginate(10);
+        //->get();                      
+
         return view("/hr/staffList", compact('profileAjanya'));
 
     }

@@ -31,14 +31,16 @@
             <div class="row justify-content-end align-items-center">
               <div class="col-auto font-bold ">
                 
+                <form type="GET" action="{{route('hr.search')}}">
                     <div class="input-group ">
-                        <input class="form-control border-end-0 border searchBar2 p-2" type="search" placeholder="Search" id="example-search-input">
+                        <input name="search" class="form-control border-end-0 border searchBar2 p-2" type="search" placeholder="Search" id="example-search-input">
                         <span class="input-group-append">
-                            <button class="searchBar2 p-2 btn btn-outline-secondary border-start-0 border-bottom-0 border ms-n5" type="button">
+                            <button class="searchBar2 p-2 btn btn-outline-secondary border-start-0 border-bottom-0 border ms-n5" type="submit">
                                 <i class="bi bi-search"></i>
                             </button>
                         </span>
                     </div>
+                  </form>
         
               </div>
         
@@ -162,6 +164,9 @@
         
         </div>
         <!-- End of content on ROW 2 -->
+        <div class="p-3 mt-3 d-flex justify-content-center">
+          <div class="row  ">{{ $profileAjanya->links() }} </div>
+        </div>
         
         
         </div>

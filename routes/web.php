@@ -30,6 +30,12 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/staff/profile', [dashController::class, 'profilenya'])->name('staff.profile');
     Route::get('/staff/dashboard', [HomeController::class, 'staffHome'])->name('staff.home');
     Route::get('/staff/project', [dashController::class, 'showProject'])->name('staff.project');
+    Route::get('/staff/find-AllProject',[dashController::class, "findAllProject"])->name('staff.search.allproject');
+
+    Route::controller(dashController::class)->prefix('staff')->group(function () {
+        Route::PUT('/project/edit/{id}','editProjectStaff')->name('staff.editProject');
+    });
+    
 });
    
 //HR Routes List
@@ -41,6 +47,7 @@ Route::middleware(['auth', 'user-access:hr'])->group(function () {
     Route::get('/hr/edit_staff/{id}',[tambahbaruController::class, "staffeditnya"])->name('staff.Edit');
     Route::get('/hr/activity',[hrController::class, "aktivitas"]);
     Route::get('/hr/addnew_staff',[hrController::class, "addnew_Staff"]);
+    Route::get('/hr/search',[hrController::class, "search_Staff"])->name('hr.search');
     
     //Staff
     Route::controller(tambahbaruController::class)->prefix('hr')->group(function () {
@@ -95,7 +102,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     //profilhr & admin
     Route::controller(admincrudController::class)->prefix('user')->group(function () {
         Route::PUT('/profilhrSave/{id}', "profilhrSave")->name('profilhr.save');
-        Route::delete('/profilhrDelete/{id}','profilhrHapus')->name('profilhr.Hapus');
         Route::PUT('/profilhrEdit/{id}','profilhrEditnya')->name('profilhr.Edit');
         
         Route::POST('/profiladminSave', "profiladminSave")->name('profiladmin.save');
@@ -110,6 +116,8 @@ Route::middleware(['auth', 'user-access:manager'])->prefix('manager')->group(fun
     Route::get('/dashboard', [HomeController::class, 'managerHome'])->name('manager.home');
     Route::get('/project', [managerController::class, 'showProject'])->name('manager.project');
     Route::get('/profile', [managerController::class, 'profileManager'])->name('manager.profile');
+    Route::get('/manager/find-AllProject',[managerController::class, "findAllProject"])->name('manager.search.allproject');
+    Route::get('/manager/find-Finished-Project',[managerController::class, "findfinishProject"])->name('manager.search.finishproject');
         
     Route::controller(managerController::class)->group(function () {
         Route::POST('/project/save', 'saveProject')->name('manager.saveProject');

@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\title1s;
+use App\Models\aktivitas;
 use App\Models\loginModel;
 use App\Models\profileAjas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\loginFormRequest;
+use App\Http\Requests\staffeditprojectsFormRequest;
 
 class dashController extends Controller
 {
@@ -29,14 +32,45 @@ class dashController extends Controller
         $this->middleware('auth');
     }
 
-    public function crudData()
+    public function editProjectStaff(staffeditprojectsFormRequest $request,$id)
     {
-        return view('/admin/crudData');
+        $editprojek=aktivitas::findOrFail($id);
+    
+           $editprojek->update([
+               "status" =>$request->status,
+               "sta_desc" =>$request->sta_desc,
+               "user_id" =>$request->user_id
+           ]);
+           //dd($editprojek);
+    
+           return redirect('/staff/project')->with('success', 'A lokasinya Name added successfully!');
     }
+    
+    function findAllProject()
+    {
+        $todayDatenya = Carbon::now();
+        $staff2 = User::all();
+        $project = aktivitas::paginate(10);
+
+        $pencarian = $_GET['search'];
+        $project = aktivitas::where('desc','LIKE','%'.$pencarian.'%')->with('user')->paginate(10);
+
+        return view('/staff/activity2', compact('staff2', 'project', 'todayDatenya'));
+    }
+    
 
     public function showProject()
     {
-        return view('/staff/activity');
+        $userID = auth()->user()->id;
+        $todayDatenya = Carbon::now();
+        $staff2 = User::all();
+        $project = aktivitas::paginate(10);
+        $project2 = aktivitas::select('deadline');
+        $projectFinished = aktivitas::paginate(10);
+        //dd($staffProjects);
+
+
+        return view('/staff/activity', compact('staff2', 'project', 'todayDatenya', 'project2', 'userID', 'projectFinished'));
     }
 
     public function dash()
@@ -80,28 +114,4 @@ class dashController extends Controller
         return view('/staff/profile', compact('profileAjanya'));
     }
 
-    public function profile() {
-    
-        // Return the results or perform other actions
-        //This is use to show all of the data
-        $profileAjanya = DB::table('users')
-        ->join('banks', 'banks.id', '=', 'users.bank_id')
-        ->join('lokasinyas', 'lokasinyas.id', '=', 'users.lokasinya_id')
-        ->join('departemens', 'departemens.id', '=', 'users.departemen_id')
-        ->join('brands', 'brands.id', '=', 'users.brand_id')
-        ->join('title1s', 'title1s.id', '=', 'users.title1_id')
-        ->get();
-        $bankdata = DB::table('banks')->get();
-  
-        $branddata = DB::table('brands')->get();
-        $departemendata = DB::table('departemens')->get();
-        $title1data = DB::table('title1s')->get();
-        $lokasidata = DB::table('lokasinyas')->get();
-        return view("/staff/profile",['depart'=>$departemendata,
-        'lokasi'=>$lokasidata,
-        'title1'=>$title1data,
-        'brand'=>$branddata,
-        'bank'=>$bankdata
-        ]);
-    }
 }

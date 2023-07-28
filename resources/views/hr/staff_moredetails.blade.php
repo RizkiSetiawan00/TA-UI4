@@ -120,6 +120,11 @@
                                       <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 24 24"><path fill="currentColor" d="M22 3H2c-1.09.04-1.96.91-2 2v14c.04 1.09.91 1.96 2 2h20c1.09-.04 1.96-.91 2-2V5a2.074 2.074 0 0 0-2-2m0 16H2V5h20v14m-8-2v-1.25c0-1.66-3.34-2.5-5-2.5c-1.66 0-5 .84-5 2.5V17h10M9 7a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 9 12a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 9 7m5 0v1h6V7h-6m0 2v1h6V9h-6m0 2v1h4v-1h-4"/></svg>
                                   </div>
                               </div>
+                              <div class="row">
+                                  <div class="col-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 24 24"><path fill="currentColor" d="M15 9h2v2h-2V9m2-4h-2v2h2V5m-6 10h2v-2h-2v2m2-10h-2v2h2V5m-2 6h2V9h-2v2M9 5H7v2h2V5m0 4H7v2h2V9m5.55 12H13v-3.5h-2V21H5V3h14v8.03c.71.06 1.39.28 2 .6V1H3v22h12.91c-.41-.56-.91-1.24-1.36-2M7 19h2v-2H7v2m2-6H7v2h2v-2m13 3.5c0 2.6-3.5 6.5-3.5 6.5S15 19.1 15 16.5c0-1.9 1.6-3.5 3.5-3.5s3.5 1.6 3.5 3.5m-2.3.1c0-.6-.6-1.2-1.2-1.2s-1.2.5-1.2 1.2c0 .6.5 1.2 1.2 1.2s1.3-.6 1.2-1.2Z"/></svg>
+                                  </div>
+                              </div>
                           </div>
   
                           <div class="col-xl">
@@ -141,6 +146,15 @@
                                   <div class="col-xl text3 text-start">{{$profileAjanya->idNumb}}</div>
                               </div>
                           <!-- End Of Item 2 -->
+                              
+                          <!-- Item 3 -->
+                              <div class="row">
+                                <div class="col-xl-4 text-start"  >
+                                    <p class="font-bold text3" >Location</p>
+                                </div>
+                                <div class="col-xl text3 text-start">{{$profileAjanya->lokasiName}}</div>
+                            </div>
+                        <!-- End Of Item 3 -->
   
                           </div>
                           <div class="col-xl-auto" style="padding: -10px;">
@@ -149,11 +163,16 @@
                                   <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.5 11.95q.725-.8 1.113-1.825T14 8q0-1.1-.388-2.125T12.5 4.05q1.5.2 2.5 1.325T16 8q0 1.5-1 2.625t-2.5 1.325ZM18 20v-3q0-.9-.4-1.713t-1.05-1.437q1.275.45 2.363 1.163T20 17v3h-2Zm2-7v-2h-2V9h2V7h2v2h2v2h-2v2h-2ZM8 12q-1.65 0-2.825-1.175T4 8q0-1.65 1.175-2.825T8 4q1.65 0 2.825 1.175T12 8q0 1.65-1.175 2.825T8 12Zm-8 8v-2.8q0-.85.438-1.563T1.6 14.55q1.55-.775 3.15-1.163T8 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T16 17.2V20H0Zm8-10q.825 0 1.413-.588T10 8q0-.825-.588-1.413T8 6q-.825 0-1.413.588T6 8q0 .825.588 1.413T8 10Zm-6 8h12v-.8q0-.275-.138-.5t-.362-.35q-1.35-.675-2.725-1.012T8 15q-1.4 0-2.775.338T2.5 16.35q-.225.125-.363.35T2 17.2v.8ZM8 8Zm0 10Z"/></svg>
                                   </div>
                                   </div>
-                              <div class="row">
-                                  <div class="col-xl">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 24 24"><path fill="currentColor" d="M13.07 10.41a5 5 0 0 0 0-5.82A3.39 3.39 0 0 1 15 4a3.5 3.5 0 0 1 0 7a3.39 3.39 0 0 1-1.93-.59M5.5 7.5A3.5 3.5 0 1 1 9 11a3.5 3.5 0 0 1-3.5-3.5m2 0A1.5 1.5 0 1 0 9 6a1.5 1.5 0 0 0-1.5 1.5M16 17v2H2v-2s0-4 7-4s7 4 7 4m-2 0c-.14-.78-1.33-2-5-2s-4.93 1.31-5 2m11.95-4A5.32 5.32 0 0 1 18 17v2h4v-2s0-3.63-6.06-4Z"/></svg>
-                                  </div>
-                              </div>
+                                <div class="row">
+                                    <div class="col-xl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 24 24"><path fill="currentColor" d="M13.07 10.41a5 5 0 0 0 0-5.82A3.39 3.39 0 0 1 15 4a3.5 3.5 0 0 1 0 7a3.39 3.39 0 0 1-1.93-.59M5.5 7.5A3.5 3.5 0 1 1 9 11a3.5 3.5 0 0 1-3.5-3.5m2 0A1.5 1.5 0 1 0 9 6a1.5 1.5 0 0 0-1.5 1.5M16 17v2H2v-2s0-4 7-4s7 4 7 4m-2 0c-.14-.78-1.33-2-5-2s-4.93 1.31-5 2m11.95-4A5.32 5.32 0 0 1 18 17v2h4v-2s0-3.63-6.06-4Z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="35px" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z"/><path fill="currentColor" d="M15 6a3.001 3.001 0 0 1-2 2.83V11h3a3 3 0 0 1 3 3v1.17a3.001 3.001 0 1 1-2 0V14a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v1.17a3.001 3.001 0 1 1-2 0V14a3 3 0 0 1 3-3h3V8.83A3.001 3.001 0 1 1 15 6Zm-3-1a1 1 0 1 0 0 2a1 1 0 0 0 0-2ZM6 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2Zm12 0a1 1 0 1 0 0 2a1 1 0 0 0 0-2Z"/></g></svg>
+                                    </div>
+                                </div>
                           </div>
   
                           <div class="col-xl">
@@ -175,6 +194,15 @@
                                   <div class="col-xl text3 text-start">{{$profileAjanya->brandName}}</div>
                               </div>
                           <!-- End Of Item 2 -->
+                              
+                          <!-- Item 3 -->
+                              <div class="row">
+                                <div class="col-xl-4 text-start"  >
+                                    <p class="font-bold text3" >Department</p>
+                                </div>
+                                <div class="col-xl text3 text-start">{{$profileAjanya->departemenName}}</div>
+                            </div>
+                        <!-- End Of Item 3 -->
                       </div>
   
                       <!-- Start of Address -->

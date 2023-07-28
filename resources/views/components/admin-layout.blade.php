@@ -36,6 +36,7 @@
       @auth
         <nav class="navbar navbar-expand-xl navbar-light bg-light bgNavbar sticky-top">
           <div class="container-xl font-regular d-flex flex-wrap">
+            <!--
             <div class="col"style="
             position: absolute;
             width: 64px;
@@ -43,8 +44,9 @@
 
             background: #D9D9D9;
             "></div> 
+            -->
             <a class="navbar-brand fivepx text-white" href="/staff/index">
-                     <img src="{{('/img/Logo Kanmo.png') }}" class="img-md logoPer" alt="..."> Logo
+                     <img src="{{('/img/Logo Kanmo.png') }}" class="img-md logoPer" alt="..."> Kanmo Group
             </a>
             <button class="navbar-toggler" style="background: #04D7A2;"type="button" data-bs-toggle="collapse" data-bs-target="#navbarWithDropdown" aria-controls="navbarWithDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon">
@@ -149,7 +151,7 @@
         
         @else
         <nav class="navbar navbar-expand-xl navbar-light bg-light bgNavbar" style="height: 90px;">
-          <div class="container-xl font-regular d-flex flex-wrap">
+          <div class="container-xl font-regular d-flex flex-wrap ">
                   <a class="nav-link text-white" href="/">Employee Portal</a>
             <div class="collapse navbar-collapse show anavPx row justify-content-evenly" id="navbarWithDropdown">
             <div class="col-lg">

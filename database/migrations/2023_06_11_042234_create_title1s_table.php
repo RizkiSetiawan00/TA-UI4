@@ -18,6 +18,7 @@ return new class extends Migration
         });
         
         DB::table('title1s')->insert([
+            /*
             ['id' =>1, 'title1Name' => 'Admin Merchandiser Intern'],
             ['id' =>2, 'title1Name' => 'Administrator'],
             ['id' =>3, 'title1Name' => 'Administrator, Group'],
@@ -97,7 +98,29 @@ return new class extends Migration
             ['id' =>77, 'title1Name' => 'Support'],
             ['id' =>78, 'title1Name' => 'Tax Intern'],
             ['id' =>79, 'title1Name' => 'Vice President'],
-            ['id' =>80, 'title1Name' => 'Warehouse']        
+            ['id' =>80, 'title1Name' => 'Warehouse']   
+            */
+            
+            ['title1Name' => 'ADMINISTRATOR'],
+            ['title1Name' => 'ASSISTANT'],
+            ['title1Name' => 'ASSOCIATE MANAGER'],
+            ['title1Name' => 'ASSOCIATE TECHNICAL DIRECTOR'],
+            ['title1Name' => 'C - LEVEL'],
+            ['title1Name' => 'CONSULTANT'],
+            ['title1Name' => 'DIRECTOR'],
+            ['title1Name' => 'EXECUTIVE'],
+            ['title1Name' => 'EXECUTIVE MANAGER'],
+            ['title1Name' => 'EXPERT'],
+            ['title1Name' => 'GENERAL MANAGER'],
+            ['title1Name' => 'GROUP MANAGING DIRECTOR'],
+            ['title1Name' => 'MANAGER'],
+            ['title1Name' => 'MANAGING DIRECTOR'],
+            ['title1Name' => 'SENIOR EXECUTIVE'],
+            ['title1Name' => 'SENIOR MANAGER'],
+            ['title1Name' => 'SENIOR VICE PRESIDENT'],
+            ['title1Name' => 'SUPPORT'],
+            ['title1Name' => 'VICE PRESIDENT'],
+
 
         ]);
     }

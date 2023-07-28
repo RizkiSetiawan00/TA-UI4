@@ -26,6 +26,19 @@
                     </div>
         
                 </div>
+            @elseif (session('fail'))
+                <div class="row pb-4">
+                    <div class="col" >
+                        <div class="row align-item-center">
+                            <div class="col d-flex alertBar3" >
+                                <h5 class="text-white font-bold m-0 p-1">
+                                    {{ session('fail') }}</h5>
+                            </div>
+        
+                        </div>
+                    </div>
+        
+                </div>
                 @endif
                 
                 <!-- End Of Alert BAR! -->
@@ -114,7 +127,7 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col-8">Name</th>
-                            <th scope="col" text-align="right">action</th>
+                            <th scope="col" style="width: 150px">action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -122,13 +135,14 @@
                         <tr>
                             <th scope="row">{{$banknya->id}}</th>
                             <td>{{$banknya->bankName}}</td>
-                            <td class="pe-3" align="right">
+                            <td class="pe-3">
                                 <form action="{{ route('bank.Hapus', $banknya->id) }}" method="post">
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#bankEdit">Edit</button>
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#bankEdit{{$banknya->id}}">Edit</button>
                                 <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
                                 @csrf
                                 @method('delete')
                               </form>
+                              @include('/modal/modalCrudAdminBank')
                             </td>
                         </tr>
                         @endforeach
@@ -186,7 +200,7 @@
                     <div class="col-sm">
                     <div class="table-responsive-xl">
                         <div class="col-auto d-flex justify-content-end font-bold ">
-                            <button type="button" class="btnaddData shadow-sm p-2 align-items-center font-color1" data-bs-toggle="modal" data-bs-target="#title1New">
+                            <button type="button" class="btnaddData shadow-sm p-2 align-items-center font-color1" data-bs-toggle="modal" data-bs-target="#title1New1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="#1D214E" class="bi bi-plus-circle" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -200,7 +214,7 @@
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col-8">Name</th>
-                                <th scope="col" text-align="right">action</th>
+                                <th scope="col" style="width: 150px">action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -208,13 +222,14 @@
                             <tr>
                                 <th scope="row">{{$title1nya->id}}</th>
                                 <td>{{$title1nya->title1Name}}</td>
-                                <td class="pe-3" align="right">
+                                <td class="pe-3" >
                                     <form action="{{ route('title1.Hapus', $title1nya->id) }}" method="post">
-                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#title1Edit">Edit</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#title1Edit{{$title1nya->id}}">Edit</button>
                                     <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
                                     @csrf
                                     @method('delete')
                                   </form>
+                                  @include('/modal/modalCrudAdminTitle1')
                                 </td>
                             </tr>
                             @endforeach
@@ -272,7 +287,7 @@
                     <div class="col-sm">
                     <div class="table-responsive-xl">
                         <div class="col-auto d-flex justify-content-end font-bold ">
-                            <button type="button" class="btnaddData shadow-sm p-2 align-items-center font-color1" data-bs-toggle="modal" data-bs-target="#brandNew">
+                            <button type="button" class="btnaddData shadow-sm p-2 align-items-center font-color1" data-bs-toggle="modal" data-bs-target="#brandNew1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="#1D214E" class="bi bi-plus-circle" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -285,7 +300,7 @@
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col-8">Name</th>
-                                <th scope="col" text-align="right">action</th>
+                                <th scope="col" style="width: 150px">action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -293,13 +308,14 @@
                             <tr>
                                 <th scope="row">{{$brandnya->id}}</th>
                                 <td>{{$brandnya->brandName}}</td>
-                                <td class="pe-3" align="right">
+                                <td class="pe-3">
                                     <form action="{{ route('brand.Hapus', $brandnya->id) }}" method="post">
-                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brandEdit">Edit</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brandEdit{{$brandnya->id}}">Edit</button>
                                     <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
                                     @csrf
                                     @method('delete')
                                     </form>
+                                    @include('/modal/modalCrudAdminBrand')
                                 </td>
                             </tr>
                             @endforeach
@@ -356,7 +372,7 @@
                     <div class="col-sm">
                     <div class="table-responsive-xl">
                         <div class="col-auto d-flex justify-content-end font-bold ">
-                            <button type="button" class="btnaddData shadow-sm p-2 align-items-center font-color1" data-bs-toggle="modal" data-bs-target="#departemenNew">
+                            <button type="button" class="btnaddData shadow-sm p-2 align-items-center font-color1" data-bs-toggle="modal" data-bs-target="#departemenNew1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="#1D214E" class="bi bi-plus-circle" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -369,7 +385,8 @@
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col-8">Name</th>
-                                <th scope="col" text-align="right">action</th>
+                                
+                                <th scope="col" style="width: 150px">action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -377,13 +394,14 @@
                             <tr>
                                 <th scope="row">{{$departemennya->id}}</th>
                                 <td>{{$departemennya->departemenName}}</td>
-                                <td class="pe-3" align="right">
+                                <td class="pe-3" >
                                     <form action="{{ route('departemen.Hapus', $departemennya->id) }}" method="post">
-                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#departemenEdit">Edit</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#departemenEdit{{$departemennya->id}}">Edit</button>
                                     <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
                                     @csrf
                                     @method('delete')
                                     </form>
+                                    @include('/modal/modalCrudAdminDepartemen')
                                 </td>
                             </tr>
                             @endforeach
@@ -440,7 +458,7 @@
                     <div class="col-sm">
                     <div class="table-responsive-xl">
                         <div class="col-auto d-flex justify-content-end font-bold ">
-                            <button type="button" class="btnaddData shadow-sm p-2 align-items-center font-color1" data-bs-toggle="modal" data-bs-target="#lokasinyaNew">
+                            <button type="button" class="btnaddData shadow-sm p-2 align-items-center font-color1" data-bs-toggle="modal" data-bs-target="#lokasinyaNew1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="#1D214E" class="bi bi-plus-circle" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -453,7 +471,8 @@
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col-8">Name</th>
-                                <th scope="col" text-align="right">action</th>
+                                
+                                <th scope="col" style="width: 150px">action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -461,13 +480,14 @@
                             <tr>
                                 <th scope="row">{{$lokasinya->id}}</th>
                                 <td>{{$lokasinya->lokasiName}}</td>
-                                <td class="pe-3" align="right">
+                                <td class="pe-3" >
                                     <form action="{{ route('lokasinya.Hapus', $lokasinya->id) }}" method="post">
-                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#lokasinyaEdit">Edit</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#lokasinyaEdit{{$lokasinya->id}}">Edit</button>
                                     <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
                                     @csrf
                                     @method('delete')
                                     </form>
+                                    @include('/modal/modalCrudAdminLokasinya')
                                 </td>
                             </tr>
                             @endforeach
@@ -537,7 +557,8 @@
                                 <th scope="col">No.</th>
                                 <th scope="col-8">Name</th>
                                 <th scope="col-8">Email</th>
-                                <th scope="col" text-align="right">action</th>
+                                
+                                <th scope="col" style="width: 150px">action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -547,13 +568,8 @@
                                 <th scope="row">{{$profilhrnya->id}}</th>
                                 <td>{{$profilhrnya->name}}</td>
                                 <td>{{$profilhrnya->email}}</td>
-                                <td class="pe-3" align="right">
-                                    <form action="{{ route('profilhr.Hapus', $profilhrnya->id) }}" method="post">
-                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#profilhrEdit">Edit</button>
-                                    <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
-                                    @csrf
-                                    @method('delete')
-                                    </form>
+                                <td class="pe-3" >
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#profilhrEdit{{$profilhrnya->id}}">Delete</button>
                                 </td>
                             </tr>
                             @endif
@@ -623,10 +639,11 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th scope="col">No.</th>
+                                <th scope="col" style="width: 150px">No.</th>
                                 <th scope="col-8">Name</th>
                                 <th scope="col-8">Email</th>
-                                <th scope="col" text-align="right">action</th>
+                                
+                                <th scope="col" style="width: 150px">action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -636,7 +653,7 @@
                                 <th scope="row">{{$profiladminnya->id}}</th>
                                 <td>{{$profiladminnya->name}}</td>
                                 <td>{{$profiladminnya->email}}</td>
-                                <td class="pe-3" align="right">
+                                <td class="pe-3" >
                                     <form action="{{ route('profiladmin.Hapus', $profiladminnya->id) }}" method="post">
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#profiladminEdit">Edit</button>
                                     <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
@@ -675,12 +692,8 @@
 </body>
 
 
+@include('/modal/modalCrudAdminAddData')
 
-@include('/modal/modalCrudAdminBank')
-@include('/modal/modalCrudAdminTitle1')
-@include('/modal/modalCrudAdminBrand')
-@include('/modal/modalCrudAdminDepartemen')
-@include('/modal/modalCrudAdminLokasinya')
 @include('/modal/modalCrudAdminProfileHr')
 @include('/modal/modalCrudAdminProfileAdmin')
     <!-- Content End -->
