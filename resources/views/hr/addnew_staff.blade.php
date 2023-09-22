@@ -71,22 +71,40 @@
             <!-- End of the Alert Bar -->
             
             <!-- Start of the Profile Picture -->
+            <form action="{{route('staff.save')}}" method="POST" enctype="multipart/form-data">
+                @csrf
             <div class="row mb-3">
                 <div class="col" >
                     <div class="row justify-content-center align-items-center">
-                        <div class="col-auto">
-                            <img src="{{('/img/Man2.png')}}" class="img-md profileStaff pfp" alt="...">
+                        <div class="col-auto pb-4">
+                            <div class="upload pfp">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="currentColor" d="M227.46 214c-16.52-28.56-43-48.06-73.68-55.09a68 68 0 1 0-51.56 0c-30.64 7-57.16 26.53-73.68 55.09a4 4 0 0 0 6.92 4C55 184.19 89.62 164 128 164s73 20.19 92.54 54a4 4 0 0 0 3.46 2a3.93 3.93 0 0 0 2-.54a4 4 0 0 0 1.46-5.46ZM68 96a60 60 0 1 1 60 60a60.07 60.07 0 0 1-60-60Z"/>/></svg>
+                                    <div class="col"style="
+                                    border-radius: 100%;
+                        
+                                    background: red;
+                                    "></div> 
+                              <div class="round">
+                                <input type="file" name="avatar" id="avatar" accept="image/*">
+                                <i class = "bi bi-camera" style = "color: #fff;"></i>
+                              </div>
+                            <!--
+                              <img src="{{('/img/Man2.png')}}" class="img-md profileStaff pfp" alt="...">
+                            -->
                         </div>
-
+                        @error('avatar')
+                        <div class="col-md small m-0 p-3 alert alert-danger shadow-sm">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
+
                 </div>
 
             </div>
             <!-- End of the Profile Picture -->
 
         <div class="container-fluid " >
-            <form action="{{route('staff.save')}}" method="POST">
-                @csrf
 
         <!-- Start of the Group 1 -->
         <div class="row mb-3">
@@ -942,6 +960,89 @@
 <!-- End of Edit Profile -->
 
 </div>
+
+<!-- START OF THE SCRIPT FOR AVATAR CROPPER -->
+<script>
+    $(document).ready(function() {
+    let cropper;
+    let croppedImageDataURL;
+
+    // Initialize the Cropper.js instance when the modal is shown
+    $('#cropImageModal').on('shown.bs.modal', function() {
+        cropper = new Cropper($('#imageToCrop')[0], {
+            aspectRatio: 1 / 1,
+            viewMode: 1,
+            autoCropArea: 0.8,
+        });
+    });
+
+    // Destroy the Cropper.js instance when the modal is hidden
+    $('#cropImageModal').on('hidden.bs.modal', function() {
+        cropper.destroy();
+        cropper = null;
+    });
+
+    // Show the image cropping modal when an image is selected
+    $('#avatar').on('change', function(event) {
+        const file = event.target.files[0];
+        const fileReader = new FileReader();
+
+        fileReader.onload = function(e) {
+            $('#imageToCrop').attr('src', e.target.result);
+            $('#cropImageModal').modal('show');
+        };
+
+        fileReader.readAsDataURL(file);
+    });
+
+    // Handle the "Crop and Upload" button click
+    $('#cropAndUpload').on('click', function() {
+        croppedImageDataURL = cropper.getCroppedCanvas().toDataURL();
+        uploadCroppedImage();
+        $('#cropImageModal').modal('hide');
+    });
+
+    
+    
+
+    // Helper function to convert a data URL to a File object
+    function dataURLtoFile(dataURL, filename) {
+        const arr = dataURL.split(',');
+        const mime = arr[0].match(/:(.*?);/)[1];
+        const bstr = atob(arr[1]);
+        let n = bstr.length;
+        const u8arr = new Uint8Array(n);
+
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+
+        return new File([u8arr], filename, { type: mime });
+    }
+    });
+    </script>
+
+    <!-- MODAL -->
+    <div class="modal fade" id="cropImageModal" tabindex="-1" aria-labelledby="cropImageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cropImageModalLabel">Crop Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="img-container">
+                        <img id="imageToCrop" src="#" alt="Image to crop">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="cropAndUpload">Crop and Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End OF THE SCRIPT FOR AVATAR CROPPER -->
 
     <!-- Content End -->
 </x-hr-layout>

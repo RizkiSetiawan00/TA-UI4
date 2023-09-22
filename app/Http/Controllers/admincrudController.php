@@ -52,8 +52,13 @@ class admincrudController extends Controller
         ->where('users.type',1)
         ->select('users.*')
         ->get();
+
+        $profiladmin2 = DB::table('users')
+        ->where('users.type','!=',1)
+        ->select('users.*')
+        ->get();
         //dd($profilhr);
-        return view('/admin/crudData', compact('bank','departemen','brand','lokasi','title1','profilhr','profilhr2','profiladmin'));
+        return view('/admin/crudData', compact('bank','departemen','brand','lokasi','title1','profilhr','profilhr2','profiladmin', 'profiladmin2'));
     }
 
     // bankSave
@@ -222,6 +227,46 @@ class admincrudController extends Controller
         $editprofilhrnya=User::findOrFail($id);
     
            $editprofilhrnya->update([
+               "type" =>$request->type
+           ]);
+    
+           return redirect('/admin/crudData')->with('success', 'A departemen Name Edited successfully!');
+    }
+
+    
+    // profiladmin 
+    public function profiladminSave(Request $request,$id)
+    { 
+        //Only need to change its Type status
+        $updateprofiladminnya=User::find($id);
+
+        if ($updateprofiladminnya->type == "user") {
+
+            $updateprofiladminnya->update([
+                'type'=>$request->type,
+            ]);
+        
+            //dd($updateprofiladminnya);
+            return redirect('/admin/crudData')->with('success', 'An User Access Successfully Changed into admin!');
+
+        }
+        
+        //dd($updateprofiladminnya);
+        return redirect('/admin/crudData')->with('fail', 'Failed! The said user is not a regular user!');
+    }
+ 
+    public function profiladminHapus($id)
+    {
+
+        //$hapusprofiladmin=User::findOrFail($id);
+        $hapusprofiladmin->delete();
+         return redirect('/admin/crudData')->with('success', 'A Departemen Name deleted successfully!');
+    }
+    public function profiladminEditnya(Request $request,$id)
+    {
+        $editprofiladminnya=User::findOrFail($id);
+    
+           $editprofiladminnya->update([
                "type" =>$request->type
            ]);
     

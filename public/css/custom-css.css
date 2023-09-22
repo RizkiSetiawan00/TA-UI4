@@ -338,3 +338,51 @@ Login
 .warnaonProgress {
     color: #0fbb90;
 }
+
+
+/* Custom File Input design for Profile Picture */
+.upload{
+    position: relative;
+    margin: auto;
+  }
+  
+  .upload svg{
+    border-radius: 50%;
+    box-shadow: 8px 5px 15px rgba(0, 0, 0, 0.12);
+    border: 6px solid #eaeaea;
+    height: 180px;
+  }
+  
+  .upload .round{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #1D214E;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .upload .round input[type = "file"]{
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+  }
+  
+  input[type=file]::-webkit-file-upload-button{
+      cursor: pointer;
+  }
+
+
+  /* CHART */
+  
+.chartText1 {
+    font-size: 25px;
+}
+
+.ui-datepicker-calendar {
+    display: none;
+    }

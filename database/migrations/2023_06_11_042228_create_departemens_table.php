@@ -18,7 +18,6 @@ return new class extends Migration
         });
         
         DB::table('departemens')->insert([
-            /*
             ['id' =>1, 'departemenName' => 'Adidas'],
             ['id' =>2, 'departemenName' => 'Amped'],
             ['id' =>3, 'departemenName' => 'Bazaar'],
@@ -77,8 +76,8 @@ return new class extends Migration
             ['id' =>56, 'departemenName' => 'Wilio'],
             ['id' =>57, 'departemenName' => 'Women Secret'],
             ['id' =>58, 'departemenName' => 'Yo Panino']
-*/
 
+            /*
             ['departemenName' => 'BUSINESS DEVELOPMENT'],
             ['departemenName' => 'DIGITAL & OMNICHANNEL'],
             ['departemenName' => 'DISTRIBUTION'],
@@ -91,6 +90,7 @@ return new class extends Migration
             ['departemenName' => 'PROJECT & MAINTENANCE'],
             ['departemenName' => 'SHIPPING'],
             ['departemenName' => 'WAREHOUSE'],
+*/
 
         ]);
     }

@@ -35,7 +35,7 @@
                     <div class="input-group ">
                         <input name="search" class="form-control border-end-0 border searchBar2 p-2" type="search" placeholder="Search" id="example-search-input">
                         <span class="input-group-append">
-                            <button class="searchBar2 p-2 btn btn-outline-secondary border-start-0 border-bottom-0 border ms-n5" type="submit">
+                            <button class="searchBar2 p-2 btn btn-outline-secondary border-start-5 border-bottom-0 border ms-n5" type="submit">
                                 <i class="bi bi-search"></i>
                             </button>
                         </span>

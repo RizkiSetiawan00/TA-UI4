@@ -23,6 +23,7 @@ class addnewFormRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:100',
+
             'joinDate' => 'required',
             'birth' => 'required',
             'idNumb' => 'required|min:15|max:20|unique:users',
@@ -55,6 +56,7 @@ class addnewFormRequest extends FormRequest
     {
         return [
             'name.required' => 'Can not be blank',
+ 
             'email.required' => 'Can not be blank',
             'joinDate.required' => 'Can not be blank',
             'birth.required' => 'Can not be blank',

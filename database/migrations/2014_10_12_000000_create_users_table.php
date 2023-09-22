@@ -17,21 +17,22 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar')->nullable();
 
-            $table->bigInteger('idNumb');
+            $table->string('idNumb');
             $table->date('joinDate');
             $table->date('birth');
-            $table->integer('nip');
-            $table->bigInteger('phoneNumb');
+            $table->string('nip');
+            $table->string('phoneNumb');
             $table->text('alamat');
             $table->text('jobDesc');
             $table->text('jobPurpose');
             $table->string('accName', 50);
-            $table->bigInteger('accNumb');
-            $table->bigInteger('npwp');
-            $table->bigInteger('health');
-            $table->bigInteger('bpjsKerja');
-            $table->bigInteger('bpjsSehat');
+            $table->string('accNumb');
+            $table->string('npwp');
+            $table->string('health');
+            $table->string('bpjsKerja');
+            $table->string('bpjsSehat');
             $table->boolean('type')->default(false);
             
             $table->rememberToken();

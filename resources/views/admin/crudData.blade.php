@@ -648,18 +648,13 @@
                             </thead>
                             <tbody>
                                 @foreach($profiladmin as $profiladminnya)
-                                @if($profiladminnya->id !== Auth::user()->id)
+                                @if($profiladminnya->type === 1)
                             <tr>
                                 <th scope="row">{{$profiladminnya->id}}</th>
                                 <td>{{$profiladminnya->name}}</td>
                                 <td>{{$profiladminnya->email}}</td>
                                 <td class="pe-3" >
-                                    <form action="{{ route('profiladmin.Hapus', $profiladminnya->id) }}" method="post">
-                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#profiladminEdit">Edit</button>
-                                    <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
-                                    @csrf
-                                    @method('delete')
-                                    </form>
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#profiladminEdit{{$profiladminnya->id}}">Delete</button>
                                 </td>
                             </tr>
                             @endif

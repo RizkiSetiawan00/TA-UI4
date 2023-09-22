@@ -162,6 +162,9 @@
                             @endforeach
                             </tbody>
                     </table>
+                        <div class="p-3 mt-3 d-flex justify-content-center">
+                            <div class="row  ">{{ $project->links() }} </div>
+                        </div>
                 
                 </div>
 

@@ -6,7 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "consoletvs/charts": "6.*",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^2.7",
         "kirschbaum-development/eloquent-power-joins": "^3.1",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",

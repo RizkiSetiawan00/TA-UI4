@@ -22,6 +22,10 @@
       
       <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
       <script src="assets/plugins/global/plugins.bundle.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+
       
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -190,6 +194,9 @@
         <footer class="border-top text-center small text-muted py-3">
             <p class="m-0">Copyright &copy; {{date('Y')}} <a href="/" class="text-muted">Employee Portal</a>. All rights reserved.</p>
           </footer>
+          
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
       
           <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

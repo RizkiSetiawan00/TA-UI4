@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\hrController;
 use App\Http\Controllers\dashController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\chartController;
 use App\Http\Controllers\managerController;
 use App\Http\Controllers\admincrudController;
 use App\Http\Controllers\tambahbaruController;
@@ -42,6 +43,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 Route::middleware(['auth', 'user-access:hr'])->group(function () {
    
     Route::get('/hr/dashboard', [HomeController::class, 'hrHome'])->name('hr.home');
+    Route::get('/hr/dashboardHr', [chartController::class, 'chartHr'])->name('hr.chart');
     Route::get('/hr/staffList',[hrController::class, "list_Staff"])->name('hr.stafflists');
     Route::get('/hr/staff_moredetails/{id}',[hrController::class, "moredetails_Staff"]);
     Route::get('/hr/edit_staff/{id}',[tambahbaruController::class, "staffeditnya"])->name('staff.Edit');

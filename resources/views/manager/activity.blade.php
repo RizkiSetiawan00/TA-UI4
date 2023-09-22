@@ -158,7 +158,6 @@
                                 </span>
                             </td>
                             <td>{{$projeknya->User->name}}</td>
-
                             @if($projeknya->status == "2")
                                 <td class="font-bold text-success">
                                     Finished
